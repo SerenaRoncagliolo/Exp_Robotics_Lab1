@@ -37,7 +37,7 @@
     <img src="images/logo_orizzontale_COLORE.png" width="400" height="">
   </a>
 
-  <h3 align="center">Assignment 1 - Behavioral Architecture</h3>
+  <h3 align="center">Assignment 1 - Behavioural Architecture</h3>
 <!-- togliere commenti
   <p align="center">
     This repository contains the first assignment of the experimental robotics laboratory course 2020 at the University of Genoa.
