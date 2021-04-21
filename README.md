@@ -85,12 +85,20 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-The aim of this project is to implement control system for a robot simulating a pet, that interact with a human and moves in a discrete 2D environment
+The aim of this project is to implement control system for a robot simulating a pet, that interact with a human and moves in a discrete 2D environment.
 <p align="center">
 <a>
-    <img src="images/home.png" width="400" height="">
+    <img src="images/home.PNG" width="350" height="">
 </a>
 </p>
+The human can interact with the robot by using pointing gestures or spoken commands.
+The robot can assume three behaviors:
+
+* sleep: the robot returns to a defined position inside the surrounding environment and sleeps for some time, finallyit wakes up and assumes normal behavior;
+* play: the robot approaches the person, it waits for a command to follow and it finally goes back to the person;
+* normal: the robot moves inside the environment.
+
+
 
 
 ### Built With
