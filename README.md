@@ -34,13 +34,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/SerenaRoncagliolo/Exp_Robotics_Lab1">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo_orizzontale_COLORE.png" width="400" height="">
   </a>
 
   <h3 align="center">Assignment 1 - Behavioral Architecture</h3>
-
+<!-- togliere commenti
   <p align="center">
-    project_description
+    This repository contains the first assignment of the experimental robotics laboratory course 2020 at the University of Genoa.
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -50,8 +50,8 @@
     <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
     ·
     <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
-</p>
+  </p> -->
+</p> 
 
 
 
