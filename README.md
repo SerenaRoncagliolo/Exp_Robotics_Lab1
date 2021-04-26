@@ -86,6 +86,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 The aim of this project is to implement control system for a robot simulating a pet, that interact with a human and moves in a discrete 2D environment.
+The documentation of the project can be found in the folder _Documentation_
 <p align="center">
 <a>
     <img src="images/home.PNG" width="350" height="">
