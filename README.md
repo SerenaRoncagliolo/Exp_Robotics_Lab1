@@ -108,6 +108,13 @@ The robot can assume three behaviors:
 
 ### Components Architecture
 
+p align="center">
+<a>
+    <img src="images/UML.png" width="400" height="">
+</a>
+</p>
+ <ol>
+  
 ### State Machine
 
 <p align="center">
