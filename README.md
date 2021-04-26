@@ -108,12 +108,18 @@ The robot can assume three behaviors:
 
 ### Components Architecture
 
-p align="center">
+<p align="center">
 <a>
-    <img src="images/UML.png" width="400" height="">
+    <img src="images/UML.png" width="600" height="">
 </a>
 </p>
- <ol>
+
+
+**Components**  
+* **Gesture Simulator**
+* **Voice Command Simulator**  
+* **Behavior Command Manager**
+* **Motion**
   
 ### State Machine
 
