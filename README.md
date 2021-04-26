@@ -94,7 +94,7 @@ The aim of this project is to implement control system for a robot simulating a 
 The human can interact with the robot by using pointing gestures or spoken commands.
 The robot can assume three behaviors:
 
-* **sleep**: the robot returns to a defined position inside the surrounding environment and sleeps for some time, finallyit wakes up and assumes normal behavior;
+* **sleep**: the robot returns to a defined position inside the surrounding environment, it sleeps for some time and, finally, it wakes up and assumes normal behavior;
 * **play**: the robot approaches the person, it waits for a command to follow and it finally goes back to the person;
 * **normal**: the robot moves inside the environment.
 
@@ -103,6 +103,12 @@ The robot can assume three behaviors:
 * []()
 * []()
 * []()
+
+## Software  Architecture
+
+### Components Architecture
+
+### State Machine
 
 
 
