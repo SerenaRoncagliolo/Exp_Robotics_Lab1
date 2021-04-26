@@ -8,10 +8,11 @@ project(first_assignment)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msg
+  geometry_msgs
   message_generation
+  roscpp
   rospy
-  std_msg
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -71,7 +72,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   geometry_msgs#   std_msgs
 # )
 
 ################################################
@@ -106,7 +107,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES first_assignment
-#  CATKIN_DEPENDS geometry_msg message_generation rospy std_msg
+#  CATKIN_DEPENDS geometry_msgs message_generation roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
