@@ -23,6 +23,10 @@ class Normal_behavior(smach.State):
 	#
 	# it initializes the state class
 	def __init__(self):
+	smach.State.__init__(self, 
+                             outcomes=['start_sleep','start_play']
+                            )
+        
 	## method execute
 	#
 	# it executes the required actions
@@ -37,6 +41,9 @@ class Sleep_behavior(smach.State):
 	#
 	# it initializes the state class
 	def __init__(self):
+	smach.State.__init__(self, 
+                             outcomes=['stop_sleep']
+                            )
 	## method execute
 	#
 	# it executes the required actions
@@ -51,6 +58,10 @@ class Play_behavior(smach.State):
 	#
 	# it initializes the state class
 	def __init__(self):
+	smach.State.__init__(self, 
+                             outcomes=['stop_play']
+                            )
+
 	## method execute
 	#
 	# it executes the required actions

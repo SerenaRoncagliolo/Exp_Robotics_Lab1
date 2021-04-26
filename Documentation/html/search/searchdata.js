@@ -1,10 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "_bemnpsv",
-  1: "nps",
+  0: "_abemnopsvxy",
+  1: "mnps",
   2: "bmpv",
   3: "bmpv",
-  4: "_e"
+  4: "_em",
+  5: "anoxy"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "namespaces",
   3: "files",
-  4: "functions"
+  4: "functions",
+  5: "variables"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "Classes",
   2: "Namespaces",
   3: "Files",
-  4: "Functions"
+  4: "Functions",
+  5: "Variables"
 };
 
