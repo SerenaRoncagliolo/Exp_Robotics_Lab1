@@ -110,8 +110,26 @@ The robot can assume three behaviors:
 
 ### State Machine
 
-
-
+<p align="center">
+<a>
+    <img src="images/State_Machine.png" width="400" height="">
+</a>
+</p>
+ <ol>
+<li> NORMAL BEHAVIOR: when the robot assumes this behavior, it starts moving randomly within the environment. While moving, the robot should listen to the voice commands, such as the _play_ command from the user which makes it switch to PLAY behavior. Otherwise, when it is moving, the sleep timer is activated and the robot should assume SLEEP behavior;</li>
+<li> SLEEP BEHAVIOR: the robot is supposed to go to a predefined position which indicates "home position" and stop there for a giveb time interval. After a certain time, it should "wake up" and assume NORMAL behavior; </li>
+<li> PLAY BEHAVIOR: the robot should perform the following actions:
+  <ol>
+  <li> Move to the location where the user is; </li>
+  <li> Wait for the pointing gesture that specifies the new target to reach; </li>
+  <li> Move to new target; </li>
+  <li> Go back to the user and repeat the above actions; </li>
+   </ol> 
+  When a certaub number of games has been reached, the robot stops playing and returns to the NORMAL state. Otherwise, the sleeping timer is triggered, it goes into SLEEP behavior.
+  
+  </li>
+ </ol>  
+ 
 <!-- GETTING STARTED -->
 ## Getting Started
 
