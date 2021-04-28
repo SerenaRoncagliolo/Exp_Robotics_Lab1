@@ -44,7 +44,7 @@ class Normal_behavior(smach.State):
 	#
 	# it executes the required actions
 	def execute(self, userdata):
-		rospy.sleep(0.5)
+		rospy.sleep(2)
 		self.counter = random.randint(1,2) 
 		print('kudrettttttttttt')
 		rospy.loginfo('Executing state NORMAL')

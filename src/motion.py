@@ -23,16 +23,22 @@ xuser = 20
 ## @param yuser define Y user position for the robot
 yuser = 20
 
+## @param behaviour
+behaviour = None
+
+
 ## callback function  callback_get_behavior
 #
 # subscriber callback to the behaviour topic
 def callback_get_behaviour(data):
 	rospy.loginfo('Executing callback behavior')
-	
+	global behaviour 
+	behaviour = data.data
+	print("kudret behaviour= ", behaviour)
 
 # define for now -> remove later
 
-behaviour = "play"
+
 timescale = 0.5 # remember to put this variable in a launch file 
 
 
@@ -74,10 +80,11 @@ def main():
 	rospy.loginfo('Initial y position: %d', y_actual)
 
 	## subscriber
-	rospy.Subscriber("/behaviour", String, callback_get_behaviour)		
-
+	rospy.loginfo('Subscriber /behavior')
+	rospy.Subscriber("/behavior", String, callback_get_behaviour)		
+	
 	## move according to the behaviour
-    	while not rospy.is_shutdown():
+	while not rospy.is_shutdown():
 		# check robot behavior
 		if(behaviour == "normal"):
 			## robot is moving randomly, call function move_normal()
@@ -89,6 +96,7 @@ def main():
 		
 		else:
 			if(behaviour == "play"):
+				rospy.loginfo("enter if behaviour play")
 				## the robot goes to the user location
 				## we first check it is not there already
 				if not ((x_actual,y_actual) == (xuser,yuser)):
@@ -98,10 +106,7 @@ def main():
 					## wait random time to simulate the robot has moved and reached position
 					rospy.sleep(timescale*random.randint(3,18))
 					rospy.loginfo('behavior PLAY')
-
 	
-	
-	print("kudrett")
 	rospy.spin()		
 
 if __name__ == "__main__":
