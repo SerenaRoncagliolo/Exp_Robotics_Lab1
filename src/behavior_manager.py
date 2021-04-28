@@ -70,7 +70,7 @@ class Sleep_behavior(smach.State):
 	#
 	# it executes the required actions
 	def execute(self, userdata):
-		rospy.sleep(0.5)
+		rospy.sleep(2)
 		return 'stop_sleep'
 
 

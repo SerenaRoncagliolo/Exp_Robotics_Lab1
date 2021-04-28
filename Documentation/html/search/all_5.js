@@ -6,5 +6,7 @@ var searchData=
   ['mapenvironment',['MapEnvironment',['../classmap2D_1_1MapEnvironment.html',1,'map2D']]],
   ['motion',['motion',['../namespacemotion.html',1,'']]],
   ['motion_2epy',['motion.py',['../motion_8py.html',1,'']]],
+  ['move_5fnormal',['move_normal',['../namespacemotion.html#ab5144d84b423263e4fa8c03c453d975c',1,'motion']]],
+  ['move_5freach_5fuser',['move_reach_user',['../namespacemotion.html#ab22dd13019d977ca14ccf9a84d7f224a',1,'motion']]],
   ['myfunc',['myfunc',['../classmap2D_1_1MapEnvironment.html#ad863a5a65b1e1075b5d821b5290030b3',1,'map2D::MapEnvironment']]]
 ];
