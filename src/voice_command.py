@@ -43,7 +43,7 @@ def main():
 	rospy.Subscriber("/behavior", String, callback_get_behaviour)
 	while not rospy.is_shutdown():
 		## wait random time
-        	rospy.sleep(random_time*random.randint(60,240))
+        	rospy.sleep(random_time*random.randint(1,24))
 		# check robot behavior
 		if(behaviour == "normal"):
 			## publisher, give command to start playing

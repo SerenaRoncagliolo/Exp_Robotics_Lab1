@@ -102,15 +102,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Inheritance diagram for behavior_manager.Normal_behavior:</div>
 <div class="dyncontent">
 <div class="center"><img src="classbehavior__manager_1_1Normal__behavior__inherit__graph.png" border="0" usemap="#behavior__manager_8Normal__behavior_inherit__map" alt="Inheritance graph"/></div>
-<map name="behavior__manager_8Normal__behavior_inherit__map" id="behavior__manager_8Normal__behavior_inherit__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for behavior_manager.Normal_behavior:</div>
 <div class="dyncontent">
 <div class="center"><img src="classbehavior__manager_1_1Normal__behavior__coll__graph.png" border="0" usemap="#behavior__manager_8Normal__behavior_coll__map" alt="Collaboration graph"/></div>
-<map name="behavior__manager_8Normal__behavior_coll__map" id="behavior__manager_8Normal__behavior_coll__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -121,9 +117,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a15faab6a43a39510355baad4faaa808a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Normal__behavior.html#a15faab6a43a39510355baad4faaa808a">execute</a> (self, userdata)</td></tr>
 <tr class="memdesc:a15faab6a43a39510355baad4faaa808a"><td class="mdescLeft">&#160;</td><td class="mdescRight">method execute  <a href="#a15faab6a43a39510355baad4faaa808a">More...</a><br /></td></tr>
 <tr class="separator:a15faab6a43a39510355baad4faaa808a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaac0d8e5b98600a4e8461f706cb7ef0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Normal__behavior.html#aaaac0d8e5b98600a4e8461f706cb7ef0">get_command</a> (self, command)</td></tr>
+<tr class="memdesc:aaaac0d8e5b98600a4e8461f706cb7ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">method get_command  <a href="#aaaac0d8e5b98600a4e8461f706cb7ef0">More...</a><br /></td></tr>
+<tr class="separator:aaaac0d8e5b98600a4e8461f706cb7ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a023e0b91a5c02b8bce8cc771bba4ecfc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Normal__behavior.html#a023e0b91a5c02b8bce8cc771bba4ecfc">play_command_received</a></td></tr>
+<tr class="memdesc:a023e0b91a5c02b8bce8cc771bba4ecfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the user command is received, subscribe to the topice <a class="el" href="namespacevoice__command.html" title="It simulate the voice commands given by the user. ">voice_command</a> on which <a class="el" href="voice__command_8py.html">voice_command.py</a> publishes  <a href="#a023e0b91a5c02b8bce8cc771bba4ecfc">More...</a><br /></td></tr>
+<tr class="separator:a023e0b91a5c02b8bce8cc771bba4ecfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c0881c34370caec4f5298f0ebe35489"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Normal__behavior.html#a8c0881c34370caec4f5298f0ebe35489">rate</a></td></tr>
 <tr class="separator:a8c0881c34370caec4f5298f0ebe35489"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -183,7 +185,50 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aaaac0d8e5b98600a4e8461f706cb7ef0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def behavior_manager.Normal_behavior.get_command </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>command</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>method get_command </p>
+<p>method to get the voice command </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a023e0b91a5c02b8bce8cc771bba4ecfc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">behavior_manager.Normal_behavior.play_command_received</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>check if the user command is received, subscribe to the topice <a class="el" href="namespacevoice__command.html" title="It simulate the voice commands given by the user. ">voice_command</a> on which <a class="el" href="voice__command_8py.html">voice_command.py</a> publishes </p>
+
+</div>
+</div>
 <a class="anchor" id="a8c0881c34370caec4f5298f0ebe35489"></a>
 <div class="memitem">
 <div class="memproto">

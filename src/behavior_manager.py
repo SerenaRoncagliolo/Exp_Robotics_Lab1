@@ -38,18 +38,35 @@ class Normal_behavior(smach.State):
 		smach.State.__init__(self, 
 		                     outcomes=['start_sleep','start_play']
 		                    )	
-		self.rate = rospy.Rate(100)  # Loop 100Hz	
+		self.play_command_received = False # boolean for checking voice command received or not	
+		self.rate = rospy.Rate(100)  # Loop 100Hz
 	## method execute
 	#
 	# it executes the required actions
 	def execute(self, userdata):
-		rospy.sleep(2)
+		#rospy.sleep(2)
 		pub_behavior.publish("normal") 
 		# self.counter = random.randint(1,2) 
-		print('kudrettttttttttt')
-		rospy.loginfo('Executing state NORMAL')
-		return 'start_sleep'
-		
+		## check if the user command is received, subscribe to the topice voice_command on which voice_command.py publishes
+        	rospy.Subscriber("/voice_command", String, self.get_command)
+
+		while not rospy.is_shutdown():
+			# if command play received
+			if(self.play_command_received):
+				self.play_command_received = False
+				return 'start_play'
+			else:
+				if(random.randint(1,100) == 27):
+					return 'start_sleep' 
+	## method get_command
+	#
+	# method to get the voice command
+	def get_command(self, command):
+		if(command.data == "play"):
+			self.play_command_received = True
+
+							
+			
 ## class Sleep_behavior
 #
 # This class implement the SLEEP behaviour of the robot pet

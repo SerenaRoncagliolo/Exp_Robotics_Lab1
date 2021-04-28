@@ -7,8 +7,7 @@ class \hyperlink{classbehavior__manager_1_1Normal__behavior}{Normal\+\_\+behavio
 
 
 
-Inheritance diagram for behavior\+\_\+manager.\+Normal\+\_\+behavior\+:
-\nopagebreak
+Inheritance diagram for behavior\+\_\+manager.\+Normal\+\_\+behavior\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,8 +16,7 @@ Inheritance diagram for behavior\+\_\+manager.\+Normal\+\_\+behavior\+:
 \end{figure}
 
 
-Collaboration diagram for behavior\+\_\+manager.\+Normal\+\_\+behavior\+:
-\nopagebreak
+Collaboration diagram for behavior\+\_\+manager.\+Normal\+\_\+behavior\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,10 +29,14 @@ Collaboration diagram for behavior\+\_\+manager.\+Normal\+\_\+behavior\+:
 def \hyperlink{classbehavior__manager_1_1Normal__behavior_a7ab22900e936fc3921a269389b51e6ab}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
 \begin{DoxyCompactList}\small\item\em method init \end{DoxyCompactList}\item 
 def \hyperlink{classbehavior__manager_1_1Normal__behavior_a15faab6a43a39510355baad4faaa808a}{execute} (self, userdata)
-\begin{DoxyCompactList}\small\item\em method execute \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em method execute \end{DoxyCompactList}\item 
+def \hyperlink{classbehavior__manager_1_1Normal__behavior_aaaac0d8e5b98600a4e8461f706cb7ef0}{get\+\_\+command} (self, command)
+\begin{DoxyCompactList}\small\item\em method get\+\_\+command \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classbehavior__manager_1_1Normal__behavior_a023e0b91a5c02b8bce8cc771bba4ecfc}{play\+\_\+command\+\_\+received}
+\begin{DoxyCompactList}\small\item\em check if the user command is received, subscribe to the topice \hyperlink{namespacevoice__command}{voice\+\_\+command} on which \hyperlink{voice__command_8py}{voice\+\_\+command.\+py} publishes \end{DoxyCompactList}\item 
 \hyperlink{classbehavior__manager_1_1Normal__behavior_a8c0881c34370caec4f5298f0ebe35489}{rate}
 \end{DoxyCompactItemize}
 
@@ -75,9 +77,28 @@ it initializes the state class
 
 method execute 
 
-it executes the required actions 
+it executes the required actions \index{behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}!get\+\_\+command@{get\+\_\+command}}
+\index{get\+\_\+command@{get\+\_\+command}!behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}}
+\subsubsection[{\texorpdfstring{get\+\_\+command(self, command)}{get_command(self, command)}}]{\setlength{\rightskip}{0pt plus 5cm}def behavior\+\_\+manager.\+Normal\+\_\+behavior.\+get\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{command}
+\end{DoxyParamCaption}
+)}\hypertarget{classbehavior__manager_1_1Normal__behavior_aaaac0d8e5b98600a4e8461f706cb7ef0}{}\label{classbehavior__manager_1_1Normal__behavior_aaaac0d8e5b98600a4e8461f706cb7ef0}
+
+
+method get\+\_\+command 
+
+method to get the voice command 
 
 \subsection{Member Data Documentation}
+\index{behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}!play\+\_\+command\+\_\+received@{play\+\_\+command\+\_\+received}}
+\index{play\+\_\+command\+\_\+received@{play\+\_\+command\+\_\+received}!behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}}
+\subsubsection[{\texorpdfstring{play\+\_\+command\+\_\+received}{play_command_received}}]{\setlength{\rightskip}{0pt plus 5cm}behavior\+\_\+manager.\+Normal\+\_\+behavior.\+play\+\_\+command\+\_\+received}\hypertarget{classbehavior__manager_1_1Normal__behavior_a023e0b91a5c02b8bce8cc771bba4ecfc}{}\label{classbehavior__manager_1_1Normal__behavior_a023e0b91a5c02b8bce8cc771bba4ecfc}
+
+
+check if the user command is received, subscribe to the topice \hyperlink{namespacevoice__command}{voice\+\_\+command} on which \hyperlink{voice__command_8py}{voice\+\_\+command.\+py} publishes 
+
 \index{behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}!rate@{rate}}
 \index{rate@{rate}!behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}}
 \subsubsection[{\texorpdfstring{rate}{rate}}]{\setlength{\rightskip}{0pt plus 5cm}behavior\+\_\+manager.\+Normal\+\_\+behavior.\+rate}\hypertarget{classbehavior__manager_1_1Normal__behavior_a8c0881c34370caec4f5298f0ebe35489}{}\label{classbehavior__manager_1_1Normal__behavior_a8c0881c34370caec4f5298f0ebe35489}
