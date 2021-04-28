@@ -27,7 +27,7 @@ yuser = 20
 behaviour = None
 at_home = False
 
-timescale = 0.5 # next get param from launch file
+random_time = 0.5 # NB remember to get param from launch file
 
 
 
@@ -74,7 +74,7 @@ def move_sleep_position():
     ## go to the home position
     if not at_home:
         ## wait random time to simulate reaching the point
-        rospy.sleep(timescale*random.randint(6,18))
+        rospy.sleep(random_time*random.randint(6,18))
         update_position(xhome,yhome)
         at_home = True
 
@@ -103,7 +103,7 @@ def main():
 			move_normal()
 			rospy.loginfo('robot reached random position')
 			## wait random time to simulate the robot has moved and reached position
-			rospy.sleep(timescale*random.randint(3,18))
+			rospy.sleep(random_time*random.randint(3,18))
 			rospy.loginfo('behavior NORMAL')
 		
 		else:
@@ -116,7 +116,7 @@ def main():
 					move_reach_user() 
 					rospy.loginfo('user position reached')
 					## wait random time to simulate the robot has moved and reached position
-					rospy.sleep(timescale*random.randint(3,18))
+					rospy.sleep(random_time*random.randint(3,18))
 					rospy.loginfo('behavior PLAY')
 				else:
 					## waits for a pointing gesture

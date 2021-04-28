@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['update_5fmap',['update_map',['../namespacemotion.html#a6fd5e1a0e83ee364babdfa35f8d57076',1,'motion']]]
+  ['voice_5fcommand',['voice_command',['../namespacevoice__command.html',1,'']]],
+  ['voice_5fcommand_2epy',['voice_command.py',['../voice__command_8py.html',1,'']]]
 ];

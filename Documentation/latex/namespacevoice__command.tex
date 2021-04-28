@@ -5,7 +5,67 @@
 It simulate the voice commands given by the user.  
 
 
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacevoice__command_a1a3b92c0f5ea62bc2f27000e4989c852}{callback\+\_\+get\+\_\+behaviour} (data)
+\begin{DoxyCompactList}\small\item\em callback function callback\+\_\+get\+\_\+behavior \end{DoxyCompactList}\item 
+def \hyperlink{namespacevoice__command_a069123617bd541e9f291626ba8882858}{main} ()
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacevoice__command_a72126e703aca1aefdf96b1e11085ed89}{behaviour} = None
+\begin{DoxyCompactList}\small\item\em global variables \end{DoxyCompactList}\item 
+float \hyperlink{namespacevoice__command_a43a92e567eb4143c1efb09aff88f4916}{random\+\_\+time} = 0.\+5
+\item 
+\hyperlink{namespacevoice__command_a893d30fba12eb55a21111bdc1bab61d6}{pub\+\_\+command\+\_\+voice} = rospy.\+Publisher(\char`\"{}/voice\+\_\+command\char`\"{}, String, queue\+\_\+size=10)
+\begin{DoxyCompactList}\small\item\em publisher pub\+\_\+command\+\_\+voice \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 It simulate the voice commands given by the user. 
+
+\subsection{Function Documentation}
+\index{voice\+\_\+command@{voice\+\_\+command}!callback\+\_\+get\+\_\+behaviour@{callback\+\_\+get\+\_\+behaviour}}
+\index{callback\+\_\+get\+\_\+behaviour@{callback\+\_\+get\+\_\+behaviour}!voice\+\_\+command@{voice\+\_\+command}}
+\subsubsection[{\texorpdfstring{callback\+\_\+get\+\_\+behaviour(data)}{callback_get_behaviour(data)}}]{\setlength{\rightskip}{0pt plus 5cm}def voice\+\_\+command.\+callback\+\_\+get\+\_\+behaviour (
+\begin{DoxyParamCaption}
+\item[{}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacevoice__command_a1a3b92c0f5ea62bc2f27000e4989c852}{}\label{namespacevoice__command_a1a3b92c0f5ea62bc2f27000e4989c852}
+
+
+callback function callback\+\_\+get\+\_\+behavior 
+
+subscriber callback to the behaviour topic \index{voice\+\_\+command@{voice\+\_\+command}!main@{main}}
+\index{main@{main}!voice\+\_\+command@{voice\+\_\+command}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}def voice\+\_\+command.\+main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacevoice__command_a069123617bd541e9f291626ba8882858}{}\label{namespacevoice__command_a069123617bd541e9f291626ba8882858}
+
+
+main function 
+
+
+
+\subsection{Variable Documentation}
+\index{voice\+\_\+command@{voice\+\_\+command}!behaviour@{behaviour}}
+\index{behaviour@{behaviour}!voice\+\_\+command@{voice\+\_\+command}}
+\subsubsection[{\texorpdfstring{behaviour}{behaviour}}]{\setlength{\rightskip}{0pt plus 5cm}voice\+\_\+command.\+behaviour = None}\hypertarget{namespacevoice__command_a72126e703aca1aefdf96b1e11085ed89}{}\label{namespacevoice__command_a72126e703aca1aefdf96b1e11085ed89}
+
+
+global variables 
+
+\index{voice\+\_\+command@{voice\+\_\+command}!pub\+\_\+command\+\_\+voice@{pub\+\_\+command\+\_\+voice}}
+\index{pub\+\_\+command\+\_\+voice@{pub\+\_\+command\+\_\+voice}!voice\+\_\+command@{voice\+\_\+command}}
+\subsubsection[{\texorpdfstring{pub\+\_\+command\+\_\+voice}{pub_command_voice}}]{\setlength{\rightskip}{0pt plus 5cm}voice\+\_\+command.\+pub\+\_\+command\+\_\+voice = rospy.\+Publisher(\char`\"{}/voice\+\_\+command\char`\"{}, String, queue\+\_\+size=10)}\hypertarget{namespacevoice__command_a893d30fba12eb55a21111bdc1bab61d6}{}\label{namespacevoice__command_a893d30fba12eb55a21111bdc1bab61d6}
+
+
+publisher pub\+\_\+command\+\_\+voice 
+
+the node publishes on the behavior topic using a message of type String. the queue\+\_\+size argument limits the amount of queued messages if any subscriber is not receiving them fast enough. \index{voice\+\_\+command@{voice\+\_\+command}!random\+\_\+time@{random\+\_\+time}}
+\index{random\+\_\+time@{random\+\_\+time}!voice\+\_\+command@{voice\+\_\+command}}
+\subsubsection[{\texorpdfstring{random\+\_\+time}{random_time}}]{\setlength{\rightskip}{0pt plus 5cm}float voice\+\_\+command.\+random\+\_\+time = 0.\+5}\hypertarget{namespacevoice__command_a43a92e567eb4143c1efb09aff88f4916}{}\label{namespacevoice__command_a43a92e567eb4143c1efb09aff88f4916}

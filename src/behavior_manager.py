@@ -16,12 +16,11 @@ import random
 
 from std_msgs.msg import String # need for publishing strings
 
-# publisher pub_behavior
+## publisher pub_behavior
 #
-# it declares that the node publishes to the behavior topic using the message type String.
+# the node publishes on the behavior topic using a message of type String.
 # the queue_size argument limits the amount of queued messages if any subscriber is not receiving them fast enough.
 pub_behavior = rospy.Publisher('/behavior', String, queue_size=10)
-
 
 
 
@@ -39,7 +38,7 @@ class Normal_behavior(smach.State):
 		smach.State.__init__(self, 
 		                     outcomes=['start_sleep','start_play']
 		                    )	
-		self.counter = 0	
+		self.rate = rospy.Rate(100)  # Loop 100Hz	
 	## method execute
 	#
 	# it executes the required actions
@@ -67,6 +66,7 @@ class Sleep_behavior(smach.State):
 		smach.State.__init__(self, 
                              outcomes=['stop_sleep']
                             )
+		self.rate = rospy.Rate(1)
 	## method execute
 	#
 	# it executes the required actions
@@ -88,7 +88,7 @@ class Play_behavior(smach.State):
 		smach.State.__init__(self, 
 		                     outcomes=['stop_play']
 		                    )
-		self.rate = rospy.Rate(200)  
+		self.rate = rospy.Rate(1)  
 	## method execute
 	#
 	# it executes the required actions
