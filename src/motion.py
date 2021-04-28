@@ -22,8 +22,14 @@ yhome = 10
 xuser = 20
 ## @param yuser define Y user position for the robot
 yuser = 20
-## @param behaviour
+
+## global variables
 behaviour = None
+at_home = False
+
+timescale = 0.5 # next get param from launch file
+
+
 
 ## callback function  callback_get_behavior
 #
@@ -32,16 +38,12 @@ def callback_get_behaviour(data):
 	rospy.loginfo('Executing callback behavior')
 	global behaviour 
 	behaviour = data.data
-	print("kudret behaviour= ", behaviour)
+	print("Current behaviour: ", behaviour)
 
-# define for now -> remove later
-timescale = 0.5 # remember to put this variable in a launch file 
-
-
-## function update_map
+## function update_position
 #
 # update actual position of the robot with the given one
-def update_map(x,y):
+def update_position(x,y):
 	x_actual=x
 	y_actual=y
 
@@ -54,14 +56,28 @@ def move_normal():
 	randY = random.randint(0,ymax) 
 	randPos = [randX,randY]
 	## update actual position
-	update_map(randPos[0],randPos[1])
+	update_position(randPos[0],randPos[1])
 
 ## function move_reach_user
 #
 # the robot reached the user when in the PLAY state
 def move_reach_user():
 	## get random position	
-	update_map(xhome,yhome)
+	update_position(xhome,yhome)
+
+
+## function move_sleep_position
+#
+# movement in the SLEEP state
+def move_sleep_position():
+    global at_home
+    ## go to the home position
+    if not at_home:
+        ## wait random time to simulate reaching the point
+        rospy.sleep(timescale*random.randint(6,18))
+        update_position(xhome,yhome)
+        at_home = True
+
 
 ## main function
 #
@@ -106,6 +122,13 @@ def main():
 					## waits for a pointing gesture
 					## goes in the pointed location
 					print('final kudret')
+			else:
+				if(behaviour == "sleep"):
+					rospy.loginfo("kudrettttt sleep")
+					# the robot moves to predefined location
+					## wait random time to simulate reaching the point
+					move_sleep_position()
+					rospy.loginfo('The robot can now sleep')
 
 	
 	rospy.spin()		
