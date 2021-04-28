@@ -45,7 +45,8 @@ class Normal_behavior(smach.State):
 	# it executes the required actions
 	def execute(self, userdata):
 		rospy.sleep(2)
-		self.counter = random.randint(1,2) 
+		pub_behavior.publish("normal") 
+		# self.counter = random.randint(1,2) 
 		print('kudrettttttttttt')
 		rospy.loginfo('Executing state NORMAL')
 		return 'start_play'
@@ -70,7 +71,7 @@ class Sleep_behavior(smach.State):
 	#
 	# it executes the required actions
 	def execute(self, userdata):
-		rospy.sleep(2)
+		rospy.sleep(1)
 		return 'stop_sleep'
 
 
@@ -92,11 +93,9 @@ class Play_behavior(smach.State):
 	#
 	# it executes the required actions
 	def execute(self, userdata):
-		rospy.sleep(0.5)
+		rospy.sleep(2)
 		pub_behavior.publish("play") 
-		print('publisher kudretttttt')
-		#rospy.loginfo('Executing state PLAY')
-		#rospy.sleep(timescale*random.randint(60,120))
+
 		return 'stop_play'
 
 def main():

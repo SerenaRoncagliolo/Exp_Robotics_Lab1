@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	<param name="timescale" value="1" />
+
+	<node name="behaviur_manager" pkg="first_assignment" type="behavior_manager.py" output="screen" />
+	<node name="motion" pkg="first_assignment" type="motion.py" output="screen" />
+   
+</launch>

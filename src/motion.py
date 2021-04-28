@@ -22,10 +22,8 @@ yhome = 10
 xuser = 20
 ## @param yuser define Y user position for the robot
 yuser = 20
-
 ## @param behaviour
 behaviour = None
-
 
 ## callback function  callback_get_behavior
 #
@@ -37,8 +35,6 @@ def callback_get_behaviour(data):
 	print("kudret behaviour= ", behaviour)
 
 # define for now -> remove later
-
-
 timescale = 0.5 # remember to put this variable in a launch file 
 
 
@@ -100,12 +96,17 @@ def main():
 				## the robot goes to the user location
 				## we first check it is not there already
 				if not ((x_actual,y_actual) == (xuser,yuser)):
-					# call function move_reach_user() to reach the user posotion
+					## call function move_reach_user() to reach the user posotion
 					move_reach_user() 
 					rospy.loginfo('user position reached')
 					## wait random time to simulate the robot has moved and reached position
 					rospy.sleep(timescale*random.randint(3,18))
 					rospy.loginfo('behavior PLAY')
+				else:
+					## waits for a pointing gesture
+					## goes in the pointed location
+					print('final kudret')
+
 	
 	rospy.spin()		
 
