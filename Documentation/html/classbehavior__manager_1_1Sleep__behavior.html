@@ -117,16 +117,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a02d87859cb76d2dbdf78d9d6e2452782"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Sleep__behavior.html#a02d87859cb76d2dbdf78d9d6e2452782">execute</a> (self, userdata)</td></tr>
 <tr class="memdesc:a02d87859cb76d2dbdf78d9d6e2452782"><td class="mdescLeft">&#160;</td><td class="mdescRight">method execute  <a href="#a02d87859cb76d2dbdf78d9d6e2452782">More...</a><br /></td></tr>
 <tr class="separator:a02d87859cb76d2dbdf78d9d6e2452782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac785f650f0f82ab1f05c5862dd94f689"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Sleep__behavior.html#ac785f650f0f82ab1f05c5862dd94f689">read_actual_position</a> (self, <a class="el" href="classbehavior__manager_1_1Sleep__behavior.html#a587f13df5a10450d4ecb4512e4f846e6">position</a>)</td></tr>
+<tr class="memdesc:ac785f650f0f82ab1f05c5862dd94f689"><td class="mdescLeft">&#160;</td><td class="mdescRight">method read_actual_position  <a href="#ac785f650f0f82ab1f05c5862dd94f689">More...</a><br /></td></tr>
+<tr class="separator:ac785f650f0f82ab1f05c5862dd94f689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a75cca73975838d3ee66cc687726685de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Sleep__behavior.html#a75cca73975838d3ee66cc687726685de">rate</a></td></tr>
 <tr class="separator:a75cca73975838d3ee66cc687726685de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a587f13df5a10450d4ecb4512e4f846e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Sleep__behavior.html#a587f13df5a10450d4ecb4512e4f846e6">position</a></td></tr>
+<tr class="separator:a587f13df5a10450d4ecb4512e4f846e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>class <a class="el" href="classbehavior__manager_1_1Sleep__behavior.html" title="class Sleep_behavior ">Sleep_behavior</a> </p>
 <p>This class implement the SLEEP behaviour of the robot pet The robot sleeps (SLEEP state)for a random period of time, then it moves to NORMAL state class <a class="el" href="classbehavior__manager_1_1Sleep__behavior.html" title="class Sleep_behavior ">Sleep_behavior</a></p>
-<p>This class implement the SLEEP behaviour of the robot pet The robot sleeps (SLEEP state)for a random period of time, then it moves to NORMAL state </p>
+<p>This class implement the SLEEP behaviour of the robot pet The robot should:</p><ul>
+<li>reach a predefined location</li>
+<li>stays there for some times</li>
+<li>goes back in NORMAL state </li>
+</ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a778df3c5a36999ef4792e6ac444bd7f3"></a>
 <div class="memitem">
@@ -173,11 +182,55 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>method execute </p>
-<p>it executes the required actions </p>
+<ul>
+<li>publish "sleep" (String) on the topic behavior</li>
+<li>publish actual position (IntArray [x,y]) of the robot, so that the motion node can check if the robot is already at home or not </li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="ac785f650f0f82ab1f05c5862dd94f689"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def behavior_manager.Sleep_behavior.read_actual_position </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>method read_actual_position </p>
+<p>subscriber to actual_position_robot topic callback, it reads the actual position of the robot </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a587f13df5a10450d4ecb4512e4f846e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">behavior_manager.Sleep_behavior.position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a75cca73975838d3ee66cc687726685de"></a>
 <div class="memitem">
 <div class="memproto">

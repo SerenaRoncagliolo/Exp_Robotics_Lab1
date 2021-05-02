@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['random_5ftime',['random_time',['../namespacemotion.html#a577a5f71c1bdf849f48eed17c4134bee',1,'motion.random_time()'],['../namespacevoice__command.html#a43a92e567eb4143c1efb09aff88f4916',1,'voice_command.random_time()']]],
-  ['rate',['rate',['../classbehavior__manager_1_1Normal__behavior.html#a8c0881c34370caec4f5298f0ebe35489',1,'behavior_manager.Normal_behavior.rate()'],['../classbehavior__manager_1_1Sleep__behavior.html#a75cca73975838d3ee66cc687726685de',1,'behavior_manager.Sleep_behavior.rate()'],['../classbehavior__manager_1_1Play__behavior.html#af636412228a2da30ad114266cbd121e3',1,'behavior_manager.Play_behavior.rate()']]]
+  ['xhome',['xhome',['../namespacebehavior__manager.html#a49c9b541017b9483f311fd59e6f7fec6',1,'behavior_manager.xhome()'],['../namespacemotion.html#a8e0cdf80e6970df1d82ccd96e3f68a1a',1,'motion.xhome()']]],
+  ['xmax',['xmax',['../namespacemotion.html#ad15e7b7b1c76162401252ee7533515a4',1,'motion']]],
+  ['xuser',['xuser',['../namespacemotion.html#ac1191b288873954280855513ee9ed701',1,'motion']]]
 ];

@@ -40,7 +40,9 @@ int \hyperlink{namespacemotion_ae750031c9c1b1e4435481bee11eaf94e}{yuser} = 20
 bool \hyperlink{namespacemotion_a30e58643e988d1faddb84cdfd54965f8}{at\+\_\+home} = False
 \item 
 float \hyperlink{namespacemotion_a577a5f71c1bdf849f48eed17c4134bee}{random\+\_\+time} = 0.\+5
-\end{DoxyCompactItemize}
+\item 
+\hyperlink{namespacemotion_a9213de80f34f408518c9265ee283b588}{pub\+\_\+actual} = rospy.\+Publisher(\char`\"{}/actual\+\_\+position\+\_\+robot\char`\"{},Int\+Array,queue\+\_\+size=10)
+\begin{DoxyCompactList}\small\item\em publisher of actual position of the robot \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -127,7 +129,14 @@ update actual position of the robot with the given one
 
 global variables 
 
-\index{motion@{motion}!random\+\_\+time@{random\+\_\+time}}
+\index{motion@{motion}!pub\+\_\+actual@{pub\+\_\+actual}}
+\index{pub\+\_\+actual@{pub\+\_\+actual}!motion@{motion}}
+\subsubsection[{\texorpdfstring{pub\+\_\+actual}{pub_actual}}]{\setlength{\rightskip}{0pt plus 5cm}motion.\+pub\+\_\+actual = rospy.\+Publisher(\char`\"{}/actual\+\_\+position\+\_\+robot\char`\"{},Int\+Array,queue\+\_\+size=10)}\hypertarget{namespacemotion_a9213de80f34f408518c9265ee283b588}{}\label{namespacemotion_a9213de80f34f408518c9265ee283b588}
+
+
+publisher of actual position of the robot 
+
+publish actual position on the topic actual\+\_\+position\+\_\+robot which is subscibed by \hyperlink{namespacebehavior__manager}{behavior\+\_\+manager} in Sleep state \index{motion@{motion}!random\+\_\+time@{random\+\_\+time}}
 \index{random\+\_\+time@{random\+\_\+time}!motion@{motion}}
 \subsubsection[{\texorpdfstring{random\+\_\+time}{random_time}}]{\setlength{\rightskip}{0pt plus 5cm}float motion.\+random\+\_\+time = 0.\+5}\hypertarget{namespacemotion_a577a5f71c1bdf849f48eed17c4134bee}{}\label{namespacemotion_a577a5f71c1bdf849f48eed17c4134bee}
 \index{motion@{motion}!xhome@{xhome}}

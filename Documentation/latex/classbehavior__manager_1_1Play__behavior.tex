@@ -29,18 +29,24 @@ Collaboration diagram for behavior\+\_\+manager.\+Play\+\_\+behavior\+:\nopagebr
 def \hyperlink{classbehavior__manager_1_1Play__behavior_aaa6ce2b1855d0a235e324df41d8519a1}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
 \begin{DoxyCompactList}\small\item\em method init \end{DoxyCompactList}\item 
 def \hyperlink{classbehavior__manager_1_1Play__behavior_a6c5231ed8f406c82e06c741e89b0f666}{execute} (self, userdata)
-\begin{DoxyCompactList}\small\item\em method execute \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em method execute \end{DoxyCompactList}\item 
+def \hyperlink{classbehavior__manager_1_1Play__behavior_ac6975390035059fb446cd40cc16e80e3}{read\+\_\+actual\+\_\+position} (self, \hyperlink{classbehavior__manager_1_1Play__behavior_a99adc036c844a25d09e636895f55ce33}{position})
+\begin{DoxyCompactList}\small\item\em method read\+\_\+actual\+\_\+position \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classbehavior__manager_1_1Play__behavior_af636412228a2da30ad114266cbd121e3}{rate}
+\item 
+\hyperlink{classbehavior__manager_1_1Play__behavior_a99adc036c844a25d09e636895f55ce33}{position}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 class \hyperlink{classbehavior__manager_1_1Play__behavior}{Play\+\_\+behavior} 
 
-This class implement the P\+L\+AY behavior of the robot pet It moves the robot to the predefined (X, Y) location within the map and moves it back to the user. 
+This class implement the P\+L\+AY behavior of the robot pet
+
+It moves the robot to the predefined (X, Y) location within the map and moves it back to the user. 
 
 \subsection{Constructor \& Destructor Documentation}
 \index{behavior\+\_\+manager\+::\+Play\+\_\+behavior@{behavior\+\_\+manager\+::\+Play\+\_\+behavior}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
@@ -69,9 +75,32 @@ it initializes the state class
 
 method execute 
 
-it executes the required actions 
+The robot should\+:
+\begin{DoxyItemize}
+\item go to the location where the person is
+\item wait for a pointing gesture
+\item go in the pointed location
+\item go back to the user
+\item wait for the next pointing gestures
+\item after some time return to N\+O\+R\+M\+AL state 
+\end{DoxyItemize}\index{behavior\+\_\+manager\+::\+Play\+\_\+behavior@{behavior\+\_\+manager\+::\+Play\+\_\+behavior}!read\+\_\+actual\+\_\+position@{read\+\_\+actual\+\_\+position}}
+\index{read\+\_\+actual\+\_\+position@{read\+\_\+actual\+\_\+position}!behavior\+\_\+manager\+::\+Play\+\_\+behavior@{behavior\+\_\+manager\+::\+Play\+\_\+behavior}}
+\subsubsection[{\texorpdfstring{read\+\_\+actual\+\_\+position(self, position)}{read_actual_position(self, position)}}]{\setlength{\rightskip}{0pt plus 5cm}def behavior\+\_\+manager.\+Play\+\_\+behavior.\+read\+\_\+actual\+\_\+position (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{classbehavior__manager_1_1Play__behavior_ac6975390035059fb446cd40cc16e80e3}{}\label{classbehavior__manager_1_1Play__behavior_ac6975390035059fb446cd40cc16e80e3}
+
+
+method read\+\_\+actual\+\_\+position 
+
+subscriber to actual\+\_\+position\+\_\+robot topic callback, it reads the actual position of the robot 
 
 \subsection{Member Data Documentation}
+\index{behavior\+\_\+manager\+::\+Play\+\_\+behavior@{behavior\+\_\+manager\+::\+Play\+\_\+behavior}!position@{position}}
+\index{position@{position}!behavior\+\_\+manager\+::\+Play\+\_\+behavior@{behavior\+\_\+manager\+::\+Play\+\_\+behavior}}
+\subsubsection[{\texorpdfstring{position}{position}}]{\setlength{\rightskip}{0pt plus 5cm}behavior\+\_\+manager.\+Play\+\_\+behavior.\+position}\hypertarget{classbehavior__manager_1_1Play__behavior_a99adc036c844a25d09e636895f55ce33}{}\label{classbehavior__manager_1_1Play__behavior_a99adc036c844a25d09e636895f55ce33}
 \index{behavior\+\_\+manager\+::\+Play\+\_\+behavior@{behavior\+\_\+manager\+::\+Play\+\_\+behavior}!rate@{rate}}
 \index{rate@{rate}!behavior\+\_\+manager\+::\+Play\+\_\+behavior@{behavior\+\_\+manager\+::\+Play\+\_\+behavior}}
 \subsubsection[{\texorpdfstring{rate}{rate}}]{\setlength{\rightskip}{0pt plus 5cm}behavior\+\_\+manager.\+Play\+\_\+behavior.\+rate}\hypertarget{classbehavior__manager_1_1Play__behavior_af636412228a2da30ad114266cbd121e3}{}\label{classbehavior__manager_1_1Play__behavior_af636412228a2da30ad114266cbd121e3}

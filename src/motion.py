@@ -9,6 +9,8 @@ import time
 import random
 
 from std_msgs.msg import String # needed for subscribing strings
+from std_msgs.msg import Int32 # needed for publishing integers
+from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
 
 ## @param xmax define max dimension of the map along X
 xmax = 30
@@ -29,7 +31,10 @@ at_home = False
 
 random_time = 0.5 # NB remember to get param from launch file
 
-
+## publisher of actual position of the robot
+#
+# publish actual position on the topic actual_position_robot which is subscibed by behavior_manager in Sleep state
+pub_actual = rospy.Publisher("/actual_position_robot",IntArray,queue_size=10)
 
 ## callback function  callback_get_behavior
 #
@@ -90,6 +95,9 @@ def main():
 	y_actual=yhome
 	rospy.loginfo('Initial x position: %d', x_actual)
 	rospy.loginfo('Initial y position: %d', y_actual)
+
+	## pub initial position
+    	pub_actual.publish([x_actual,y_actual])
 
 	## subscriber
 	rospy.loginfo('Subscriber /behavior')

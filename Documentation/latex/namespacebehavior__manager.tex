@@ -22,6 +22,12 @@ def \hyperlink{namespacebehavior__manager_a81416c498199e9a8bc275514afaf9944}{mai
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+float \hyperlink{namespacebehavior__manager_a53d496c1cdb4a1a21f698d78a6baeb6e}{random\+\_\+time} = 0.\+5
+\begin{DoxyCompactList}\small\item\em global variables \end{DoxyCompactList}\item 
+int \hyperlink{namespacebehavior__manager_a49c9b541017b9483f311fd59e6f7fec6}{xhome} = 10
+\item 
+int \hyperlink{namespacebehavior__manager_a8a02239f22d228c9aea6e13b43a5cdee}{yhome} = 10
+\item 
 \hyperlink{namespacebehavior__manager_ac30069bca00035c62a13df72bf29a3aa}{pub\+\_\+behavior} = rospy.\+Publisher(\textquotesingle{}/behavior\textquotesingle{}, String, queue\+\_\+size=10)
 \begin{DoxyCompactList}\small\item\em publisher pub\+\_\+behavior \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -49,4 +55,26 @@ A finite-\/state machine (F\+SM) is a behavior model that consists of a finite n
 
 publisher pub\+\_\+behavior 
 
-the node publishes on the behavior topic using a message of type String. the queue\+\_\+size argument limits the amount of queued messages if any subscriber is not receiving them fast enough. 
+the node publishes on the behavior topic using a message of type String. the queue\+\_\+size argument limits the amount of queued messages if any subscriber is not receiving them fast enough. \index{behavior\+\_\+manager@{behavior\+\_\+manager}!random\+\_\+time@{random\+\_\+time}}
+\index{random\+\_\+time@{random\+\_\+time}!behavior\+\_\+manager@{behavior\+\_\+manager}}
+\subsubsection[{\texorpdfstring{random\+\_\+time}{random_time}}]{\setlength{\rightskip}{0pt plus 5cm}float behavior\+\_\+manager.\+random\+\_\+time = 0.\+5}\hypertarget{namespacebehavior__manager_a53d496c1cdb4a1a21f698d78a6baeb6e}{}\label{namespacebehavior__manager_a53d496c1cdb4a1a21f698d78a6baeb6e}
+
+
+global variables 
+
+\index{behavior\+\_\+manager@{behavior\+\_\+manager}!xhome@{xhome}}
+\index{xhome@{xhome}!behavior\+\_\+manager@{behavior\+\_\+manager}}
+\subsubsection[{\texorpdfstring{xhome}{xhome}}]{\setlength{\rightskip}{0pt plus 5cm}int behavior\+\_\+manager.\+xhome = 10}\hypertarget{namespacebehavior__manager_a49c9b541017b9483f311fd59e6f7fec6}{}\label{namespacebehavior__manager_a49c9b541017b9483f311fd59e6f7fec6}
+
+\begin{DoxyParams}{Parameters}
+{\em xhome} & define X house position for the robot \\
+\hline
+\end{DoxyParams}
+\index{behavior\+\_\+manager@{behavior\+\_\+manager}!yhome@{yhome}}
+\index{yhome@{yhome}!behavior\+\_\+manager@{behavior\+\_\+manager}}
+\subsubsection[{\texorpdfstring{yhome}{yhome}}]{\setlength{\rightskip}{0pt plus 5cm}int behavior\+\_\+manager.\+yhome = 10}\hypertarget{namespacebehavior__manager_a8a02239f22d228c9aea6e13b43a5cdee}{}\label{namespacebehavior__manager_a8a02239f22d228c9aea6e13b43a5cdee}
+
+\begin{DoxyParams}{Parameters}
+{\em yhome} & define Y house position for the robot \\
+\hline
+\end{DoxyParams}

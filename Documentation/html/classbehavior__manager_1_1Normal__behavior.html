@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a023e0b91a5c02b8bce8cc771bba4ecfc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Normal__behavior.html#a023e0b91a5c02b8bce8cc771bba4ecfc">play_command_received</a></td></tr>
-<tr class="memdesc:a023e0b91a5c02b8bce8cc771bba4ecfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the user command is received, subscribe to the topice <a class="el" href="namespacevoice__command.html" title="It simulate the voice commands given by the user. ">voice_command</a> on which <a class="el" href="voice__command_8py.html">voice_command.py</a> publishes  <a href="#a023e0b91a5c02b8bce8cc771bba4ecfc">More...</a><br /></td></tr>
+<tr class="memdesc:a023e0b91a5c02b8bce8cc771bba4ecfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the user command is received, subscribe to the topic <a class="el" href="namespacevoice__command.html" title="It simulate the voice commands given by the user. ">voice_command</a> on which <a class="el" href="voice__command_8py.html">voice_command.py</a> publishes "play"  <a href="#a023e0b91a5c02b8bce8cc771bba4ecfc">More...</a><br /></td></tr>
 <tr class="separator:a023e0b91a5c02b8bce8cc771bba4ecfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c0881c34370caec4f5298f0ebe35489"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbehavior__manager_1_1Normal__behavior.html#a8c0881c34370caec4f5298f0ebe35489">rate</a></td></tr>
 <tr class="separator:a8c0881c34370caec4f5298f0ebe35489"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,7 +181,19 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>method execute </p>
-<p>it executes the required actions </p>
+<ul>
+<li>publish "normal" (String) on the topic behavior</li>
+<li>check if a voice command is received from the user</li>
+<li>if the command is received:<ul>
+<li>goes into PLAY state</li>
+</ul>
+</li>
+<li>else<ul>
+<li>trigger sleeping timer at random time</li>
+<li>goes into SLEEP state </li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -225,7 +237,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>check if the user command is received, subscribe to the topice <a class="el" href="namespacevoice__command.html" title="It simulate the voice commands given by the user. ">voice_command</a> on which <a class="el" href="voice__command_8py.html">voice_command.py</a> publishes </p>
+<p>check if the user command is received, subscribe to the topic <a class="el" href="namespacevoice__command.html" title="It simulate the voice commands given by the user. ">voice_command</a> on which <a class="el" href="voice__command_8py.html">voice_command.py</a> publishes "play" </p>
 
 </div>
 </div>

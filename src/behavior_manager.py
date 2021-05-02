@@ -14,7 +14,17 @@ import smach_ros
 import time
 import random
 
-from std_msgs.msg import String # need for publishing strings
+from std_msgs.msg import String # needed for publishing strings
+from std_msgs.msg import Int32 # needed for publishing integers
+from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
+
+## global variables
+random_time = 0.5 # NB remember to get param from launch file
+
+## @param xhome define X house position for the robot
+xhome = 10
+## @param yhome define Y house position for the robot
+yhome = 10
 
 ## publisher pub_behavior
 #
@@ -38,24 +48,34 @@ class Normal_behavior(smach.State):
 		smach.State.__init__(self, 
 		                     outcomes=['start_sleep','start_play']
 		                    )	
-		self.play_command_received = False # boolean for checking voice command received or not	
-		self.rate = rospy.Rate(100)  # Loop 100Hz
+		# initialize boolean for checking voice command received or not	
+		self.play_command_received = False 
+		 # Loop 100Hz
+		self.rate = rospy.Rate(100) 
 	## method execute
 	#
-	# it executes the required actions
+	# - publish "normal" (String) on the topic behavior
+	# - check if a voice command is received from the user
+	# - if the command is received:
+	#	- goes into PLAY state
+	# - else
+	#	- trigger sleeping timer at random time
+	#	- goes into SLEEP state
 	def execute(self, userdata):
 		#rospy.sleep(2)
 		pub_behavior.publish("normal") 
 		# self.counter = random.randint(1,2) 
-		## check if the user command is received, subscribe to the topice voice_command on which voice_command.py publishes
+		## check if the user command is received, subscribe to the topic voice_command on which voice_command.py publishes "play"
         	rospy.Subscriber("/voice_command", String, self.get_command)
 
 		while not rospy.is_shutdown():
 			# if command play received
+			# check if boolean play_command_received is True
 			if(self.play_command_received):
 				self.play_command_received = False
 				return 'start_play'
 			else:
+				# simulating triggering of sleep timer at random time
 				if(random.randint(1,100) == 27):
 					return 'start_sleep' 
 	## method get_command
@@ -74,7 +94,10 @@ class Normal_behavior(smach.State):
 ## class Sleep_behavior
 #
 # This class implement the SLEEP behaviour of the robot pet
-# The robot sleeps (SLEEP state)for a random period of time, then it moves to NORMAL state
+# The robot should:
+#	- reach a predefined location
+#	- stays there for some times
+#	- goes back in NORMAL state
 class Sleep_behavior(smach.State):
 	## method init
 	#
@@ -86,16 +109,29 @@ class Sleep_behavior(smach.State):
 		self.rate = rospy.Rate(1)
 	## method execute
 	#
-	# it executes the required actions
+	# - publish "sleep" (String) on the topic behavior
+	# - publish actual position (IntArray [x,y]) of the robot, so that the motion node can check if the robot is already at home or not
 	def execute(self, userdata):
-		rospy.sleep(2)
+		# rospy.sleep(2)
 		pub_behavior.publish("sleep") 
-		return 'stop_sleep'
-
+		# when "sleep" is published on the topic behavior, the node motion should subscribe to it 
+		# and send the robot at the home position
+		# to check if it's already at home position we read the actual position of the robot
+		rospy.Subscriber("/actual_position_robot", IntArray, self.read_actual_position)
+		if(self.position == (xhome,yhome):
+			 ## it should sleep for some time
+			rospy.sleep(random_time*random.randint(15,45))
+			return 'stop_sleep'
+	## method read_actual_position
+	#
+   	# subscriber to actual_position_robot topic callback, it reads the actual position of the robot
+   	def read_actual_position(self,position):
+		self.position = position.data
 
 ## class Play_behavior
 #
 # This class implement the PLAY behavior of the robot pet
+#
 # It moves the robot to the predefined (X, Y) location within the map and moves it back to the user.
 class Play_behavior(smach.State):
 	## method init
@@ -108,12 +144,28 @@ class Play_behavior(smach.State):
 		self.rate = rospy.Rate(1)  
 	## method execute
 	#
-	# it executes the required actions
-	def execute(self, userdata):
-		rospy.sleep(2)
-		pub_behavior.publish("play") 
+	# The robot should:
+	#	- go to the location where the person is
+	#	- wait for a pointing gesture
+	#	- go in the pointed location
+	# 	- go back to the user
+	# 	- wait for the next pointing gestures
+	# 	- after some time return to NORMAL state
 
+	def execute(self, userdata):
+		# publish behavior "play" on the topic \behavior
+		pub_behavior.publish("play") 
+		# the topic is subscribed by the node poiting gesture, which send the robot to the user location
+		# motion read the goal position from the poiting gesture which keeps publishing 
+		# check the actual position of the robot
+		rospy.Subscriber("/actual_position_robot", IntArray, self.read_actual_position)
+		
 		return 'stop_play'
+	## method read_actual_position
+	#
+   	# subscriber to actual_position_robot topic callback, it reads the actual position of the robot
+   	def read_actual_position(self,position):
+		self.position = position.data
 
 def main():
 	rospy.init_node("behavior_manager")

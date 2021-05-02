@@ -36,7 +36,7 @@ def \hyperlink{classbehavior__manager_1_1Normal__behavior_aaaac0d8e5b98600a4e846
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classbehavior__manager_1_1Normal__behavior_a023e0b91a5c02b8bce8cc771bba4ecfc}{play\+\_\+command\+\_\+received}
-\begin{DoxyCompactList}\small\item\em check if the user command is received, subscribe to the topice \hyperlink{namespacevoice__command}{voice\+\_\+command} on which \hyperlink{voice__command_8py}{voice\+\_\+command.\+py} publishes \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em check if the user command is received, subscribe to the topic \hyperlink{namespacevoice__command}{voice\+\_\+command} on which \hyperlink{voice__command_8py}{voice\+\_\+command.\+py} publishes \char`\"{}play\char`\"{} \end{DoxyCompactList}\item 
 \hyperlink{classbehavior__manager_1_1Normal__behavior_a8c0881c34370caec4f5298f0ebe35489}{rate}
 \end{DoxyCompactItemize}
 
@@ -77,7 +77,20 @@ it initializes the state class
 
 method execute 
 
-it executes the required actions \index{behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}!get\+\_\+command@{get\+\_\+command}}
+
+\begin{DoxyItemize}
+\item publish \char`\"{}normal\char`\"{} (String) on the topic behavior
+\item check if a voice command is received from the user
+\item if the command is received\+:
+\begin{DoxyItemize}
+\item goes into P\+L\+AY state
+\end{DoxyItemize}
+\item else
+\begin{DoxyItemize}
+\item trigger sleeping timer at random time
+\item goes into S\+L\+E\+EP state 
+\end{DoxyItemize}
+\end{DoxyItemize}\index{behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}!get\+\_\+command@{get\+\_\+command}}
 \index{get\+\_\+command@{get\+\_\+command}!behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}}
 \subsubsection[{\texorpdfstring{get\+\_\+command(self, command)}{get_command(self, command)}}]{\setlength{\rightskip}{0pt plus 5cm}def behavior\+\_\+manager.\+Normal\+\_\+behavior.\+get\+\_\+command (
 \begin{DoxyParamCaption}
@@ -97,7 +110,7 @@ method to get the voice command
 \subsubsection[{\texorpdfstring{play\+\_\+command\+\_\+received}{play_command_received}}]{\setlength{\rightskip}{0pt plus 5cm}behavior\+\_\+manager.\+Normal\+\_\+behavior.\+play\+\_\+command\+\_\+received}\hypertarget{classbehavior__manager_1_1Normal__behavior_a023e0b91a5c02b8bce8cc771bba4ecfc}{}\label{classbehavior__manager_1_1Normal__behavior_a023e0b91a5c02b8bce8cc771bba4ecfc}
 
 
-check if the user command is received, subscribe to the topice \hyperlink{namespacevoice__command}{voice\+\_\+command} on which \hyperlink{voice__command_8py}{voice\+\_\+command.\+py} publishes 
+check if the user command is received, subscribe to the topic \hyperlink{namespacevoice__command}{voice\+\_\+command} on which \hyperlink{voice__command_8py}{voice\+\_\+command.\+py} publishes \char`\"{}play\char`\"{} 
 
 \index{behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}!rate@{rate}}
 \index{rate@{rate}!behavior\+\_\+manager\+::\+Normal\+\_\+behavior@{behavior\+\_\+manager\+::\+Normal\+\_\+behavior}}
