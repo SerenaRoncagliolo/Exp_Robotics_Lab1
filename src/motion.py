@@ -28,6 +28,7 @@ yuser = 20
 ## global variables
 behaviour = None
 at_home = False
+goal_position = None
 
 random_time = 0.5 # NB remember to get param from launch file
 
@@ -40,10 +41,9 @@ pub_actual = rospy.Publisher("/actual_position_robot",IntArray,queue_size=10)
 #
 # subscriber callback to the behaviour topic
 def callback_get_behaviour(data):
-	rospy.loginfo('Executing callback behavior')
+	rospy.loginfo('NODE MOTION: Executing callback behavior')
 	global behaviour 
 	behaviour = data.data
-	print("Current behaviour: ", behaviour)
 
 ## function update_position
 #
@@ -56,12 +56,15 @@ def update_position(x,y):
 #
 # the robot moves randomly when in the NORMAL state
 def move_normal():
+	rospy.loginfo("NODE MOTION: function to move in normal mode to a random position")
 	## get random position
 	randX = random.randint(0,xmax) 
 	randY = random.randint(0,ymax) 
 	randPos = [randX,randY]
 	## update actual position
 	update_position(randPos[0],randPos[1])
+	## wait random time to simulate the robot has moved and reached position
+	rospy.sleep(random_time*random.randint(3,18))
 
 ## function move_reach_user
 #
@@ -75,13 +78,23 @@ def move_reach_user():
 #
 # movement in the SLEEP state
 def move_sleep_position():
-    global at_home
-    ## go to the home position
-    if not at_home:
-        ## wait random time to simulate reaching the point
-        rospy.sleep(random_time*random.randint(6,18))
-        update_position(xhome,yhome)
-        at_home = True
+	
+	global at_home
+	## go to the home position
+	if not at_home:
+		rospy.loginfo("NODE MOTION: move into sleep position")
+	        ## wait random time to simulate reaching the point
+	        rospy.sleep(random_time*random.randint(6,30))
+	        update_position(xhome,yhome)
+		rospy.loginfo('NODE MOTION:  The robot asleep at home position')
+	        at_home = True
+
+## function callback_get_position
+#
+# subscriber callback position
+def callback_get_position(position):
+    global goal_position
+    goal_position = position.data
 
 
 ## main function
@@ -93,51 +106,61 @@ def main():
 	# we impose that the initial position corresponds to home position 
 	x_actual=xhome 
 	y_actual=yhome
-	rospy.loginfo('Initial x position: %d', x_actual)
-	rospy.loginfo('Initial y position: %d', y_actual)
+	rospy.loginfo('NODE MOTION: Initial x position: %d', x_actual)
+	rospy.loginfo('NODE MOTION: Initial y position: %d', y_actual)
 
 	## pub initial position
     	pub_actual.publish([x_actual,y_actual])
-
+	
+	global at_home
+	global goal_position
+	
 	## subscriber
 	rospy.loginfo('Subscriber /behavior')
 	rospy.Subscriber("/behavior", String, callback_get_behaviour)		
-	
+	rospy.Subscriber("/pointing_gesture",IntArray, callback_get_position)
+
+	rate = rospy.Rate(100)
+
 	## move according to the behaviour
 	while not rospy.is_shutdown():
 		# check robot behavior
-		if(behaviour == "normal"):
-			## robot is moving randomly, call function move_normal()
-			move_normal()
-			rospy.loginfo('robot reached random position')
-			## wait random time to simulate the robot has moved and reached position
-			rospy.sleep(random_time*random.randint(3,18))
-			rospy.loginfo('behavior NORMAL')
-		
+		if(behaviour == "sleep"):
+			# rospy.loginfo('NODE MOTION: enter sleep behavior')
+			## the robot moves to predefined location
+			move_sleep_position()
+			## ignore pointing command
+            		if not goal_position == None:
+                		goal_position = None
+			
 		else:
-			if(behaviour == "play"):
-				rospy.loginfo("enter if behaviour play")
-				## the robot goes to the user location
-				## we first check it is not there already
-				if not ((x_actual,y_actual) == (xuser,yuser)):
-					## call function move_reach_user() to reach the user posotion
-					move_reach_user() 
-					rospy.loginfo('user position reached')
-					## wait random time to simulate the robot has moved and reached position
-					rospy.sleep(random_time*random.randint(3,18))
-					rospy.loginfo('behavior PLAY')
-				else:
-					## waits for a pointing gesture
-					## goes in the pointed location
-					print('final kudret')
+			if(behaviour == "normal"):
+				rospy.loginfo('NODE MOTION: enter normal state')
+				at_home = False
+				## robot is moving randomly, call function move_normal()
+				move_normal()
+				## ignore pointing command
+            			if not goal_position == None:
+                			goal_position = None
+				rospy.loginfo('NODE MOTION: robot reached random position')
+		
 			else:
-				if(behaviour == "sleep"):
-					rospy.loginfo("kudrettttt sleep")
-					# the robot moves to predefined location
-					## wait random time to simulate reaching the point
-					move_sleep_position()
-					rospy.loginfo('The robot can now sleep')
-
+				if(behaviour == "play"):
+					rospy.loginfo("NODE MOTION: behaviour play")
+					## the robot goes to the user location
+					## we first check it is not there already
+					if not ((x_actual,y_actual) == (xuser,yuser)):
+						## call function move_reach_user() to reach the user posotion
+						move_reach_user() 
+						rospy.loginfo('user position reached')
+						## wait random time to simulate the robot has moved and reached position
+						rospy.sleep(random_time*random.randint(3,18))
+						rospy.loginfo('behavior PLAY')
+					else:
+						## waits for a pointing gesture
+						## goes in the pointed location
+						print('final kudret')
+				
 	
 	rospy.spin()		
 

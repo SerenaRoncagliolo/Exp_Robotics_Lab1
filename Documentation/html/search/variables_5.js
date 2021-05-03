@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['yhome',['yhome',['../namespacebehavior__manager.html#a8a02239f22d228c9aea6e13b43a5cdee',1,'behavior_manager.yhome()'],['../namespacemotion.html#ad24c81915bdf6ae465698c9f63e0c419',1,'motion.yhome()']]],
-  ['ymax',['ymax',['../namespacemotion.html#a93496959e7cd7b64c958600e13052b02',1,'motion']]],
-  ['yuser',['yuser',['../namespacemotion.html#ae750031c9c1b1e4435481bee11eaf94e',1,'motion']]]
+  ['user_5faction',['user_action',['../namespacesimulator.html#a0daa027b275daf884aef2e403360ced8',1,'simulator']]]
 ];

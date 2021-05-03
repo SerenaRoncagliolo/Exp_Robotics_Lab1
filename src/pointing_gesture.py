@@ -13,9 +13,18 @@ from std_msgs.msg import String # needed for subscribing strings
 from std_msgs.msg import Int32 # needed for publishing integers
 from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
 
+## @param xmax define max dimension of the map along X
+xmax = 30
+## @param ymax define max dimension of the map along Y
+ymax = 30
 
 ## global variables
 behaviour = None
+random_time = 0.5 # NB remember to get param from launch file
+
+## publisher
+# send pointing gesture, send a random position 
+pub_pointing_gesture = rospy.Publisher("/pointing_gesture", IntArray, queue_size=10)
 
 
 ## callback function  callback_get_behavior
@@ -46,12 +55,19 @@ def main():
 	## init node
 	rospy.init_node('pointing_gesture')
 	rate = rospy.Rate(100)
-
+	
 	## subscriber
+	# read behavior
 	rospy.loginfo('Subscriber /behavior')
 	rospy.Subscriber("/behavior", String, callback_get_behaviour)			
-
-	rospy.spin()		
+	
+	while not rospy.is_shutdown():
+		 ## wait random time
+        	rospy.sleep(random_time*random.randint(30,100))
+		## publish position
+		pub_pointing_gesture.publish(compute_random_position())
+		rate.sleep()
+	
 
 if __name__ == "__main__":
     main()
