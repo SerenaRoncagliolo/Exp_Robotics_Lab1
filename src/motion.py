@@ -41,7 +41,7 @@ pub_actual = rospy.Publisher("/actual_position_robot",IntArray,queue_size=10)
 #
 # subscriber callback to the behaviour topic
 def callback_get_behaviour(data):
-	rospy.loginfo('NODE MOTION: Executing callback behavior')
+	#rospy.loginfo('NODE MOTION: Executing callback behavior')
 	global behaviour 
 	behaviour = data.data
 
@@ -114,6 +114,8 @@ def main():
 	
 	global at_home
 	global goal_position
+	global xuser
+	global yuser
 	
 	## subscriber
 	rospy.loginfo('Subscriber /behavior')
@@ -152,14 +154,13 @@ def main():
 					if not ((x_actual,y_actual) == (xuser,yuser)):
 						## call function move_reach_user() to reach the user posotion
 						move_reach_user() 
-						rospy.loginfo('user position reached')
 						## wait random time to simulate the robot has moved and reached position
-						rospy.sleep(random_time*random.randint(3,18))
-						rospy.loginfo('behavior PLAY')
+						rospy.sleep(random_time*random.randint(3,10))
+						rospy.loginfo('NODE MOTION: play - user position reached')
 					else:
 						## waits for a pointing gesture
 						## goes in the pointed location
-						print('final kudret')
+						print('NODE MOTION: pointing gesture still to implement')
 				
 	
 	rospy.spin()		

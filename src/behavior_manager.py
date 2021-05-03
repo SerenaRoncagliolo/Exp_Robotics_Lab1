@@ -66,6 +66,7 @@ class Normal_behavior(smach.State):
 		pub_behavior.publish("normal") 
 		# self.counter = random.randint(1,2) 
 		## check if the user command is received, subscribe to the topic voice_command on which voice_command.py publishes "play"
+		rospy.loginfo("check if the user command is received")
         	rospy.Subscriber("/voice_command", String, self.get_command)
 
 		while not rospy.is_shutdown():
@@ -76,7 +77,7 @@ class Normal_behavior(smach.State):
 				return 'start_play'
 			else:
 				# simulating triggering of sleep timer at random time
-				if(random.randint(1,15) == 7):
+				if(random.randint(1,200) == 17):
 					return 'start_sleep' 
 			self.rate.sleep()
 	## method get_command
@@ -153,6 +154,7 @@ class Play_behavior(smach.State):
 		                     outcomes=['stop_play']
 		                    )
 		self.rate = rospy.Rate(1)  
+		self.position = [-1,-1]
 	## method execute
 	#
 	# The robot should:

@@ -24,7 +24,7 @@ pub_command_voice = rospy.Publisher("/voice_command", String, queue_size=10)
 #
 # subscriber callback to the behaviour topic
 def callback_get_behaviour(data):
-	rospy.loginfo('VOICE COMMAND: Executing callback behavior')
+	#rospy.loginfo('VOICE COMMAND: Executing callback behavior')
 	global behaviour 
 	behaviour = data.data
 
@@ -39,9 +39,10 @@ def main():
 	## subscriber
 	rospy.loginfo('VOICE COMMMAND NODE: Subscriber to /behavior topic')
 	rospy.Subscriber("/behavior", String, callback_get_behaviour)
+	rate = rospy.Rate(100)
 	while not rospy.is_shutdown():
 		## wait random time
-        	rospy.sleep(random_time*random.randint(1,2))
+        	rospy.sleep(random_time*random.randint(1,30))
 		# check robot behavior
 		if(behaviour == "normal"):
 			## publisher, give command to start playing
