@@ -17,7 +17,7 @@ import random
 from std_msgs.msg import String # needed for publishing strings
 from std_msgs.msg import Int32 # needed for publishing integers
 from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
-from map2Dclass import Map2D # class to simulate map of the environment
+from classes.map2Dclass import Map2D # class to simulate map of the environment
 
 ## global variables
 random_time = 0.5 # NB remember to get param from launch file
