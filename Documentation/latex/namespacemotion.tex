@@ -25,26 +25,16 @@ def \hyperlink{namespacemotion_ad6289fca8572f5af95fd28f4c2dbc68d}{main} ()
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{namespacemotion_ad15e7b7b1c76162401252ee7533515a4}{xmax} = 30
-\item 
-int \hyperlink{namespacemotion_a93496959e7cd7b64c958600e13052b02}{ymax} = 30
-\item 
-int \hyperlink{namespacemotion_a8e0cdf80e6970df1d82ccd96e3f68a1a}{xhome} = 10
-\item 
-int \hyperlink{namespacemotion_ad24c81915bdf6ae465698c9f63e0c419}{yhome} = 10
-\item 
-int \hyperlink{namespacemotion_ac1191b288873954280855513ee9ed701}{xuser} = 20
-\item 
-int \hyperlink{namespacemotion_ae750031c9c1b1e4435481bee11eaf94e}{yuser} = 20
-\item 
 \hyperlink{namespacemotion_a15d63b2a70ac940f179085ce72871c86}{behaviour} = None
-\begin{DoxyCompactList}\small\item\em global variables \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em all these param are now saved in the class Map2D in \hyperlink{map2Dclass_8py}{map2\+Dclass.\+py} xmax define max dimension of the map along X xmax = 30 ymax define max dimension of the map along Y ymax = 30 xhome define X house position for the robot xhome = 10 yhome define Y house position for the robot yhome = 10 xuser define X user position for the robot xuser = 20 yuser define Y user position for the robot yuser = 20 \end{DoxyCompactList}\item 
 bool \hyperlink{namespacemotion_a30e58643e988d1faddb84cdfd54965f8}{at\+\_\+home} = False
 \item 
 \hyperlink{namespacemotion_a6886ce6765cc301867580755b977136a}{goal\+\_\+position} = None
 \item 
 float \hyperlink{namespacemotion_a577a5f71c1bdf849f48eed17c4134bee}{random\+\_\+time} = 0.\+5
 \item 
+\hyperlink{namespacemotion_a858c2a633daaa0a83b599397041f524b}{map\+\_\+2D} = \hyperlink{classmap2Dclass_1_1Map2D}{Map2D}()
+\begin{DoxyCompactList}\small\item\em object for access the values of the map2D \end{DoxyCompactList}\item 
 \hyperlink{namespacemotion_a9213de80f34f408518c9265ee283b588}{pub\+\_\+actual} = rospy.\+Publisher(\char`\"{}/actual\+\_\+position\+\_\+robot\char`\"{},Int\+Array,queue\+\_\+size=10)
 \begin{DoxyCompactList}\small\item\em publisher of actual position of the robot \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -131,7 +121,7 @@ movement in the S\+L\+E\+EP state \index{motion@{motion}!update\+\_\+position@{u
 
 function update\+\_\+position 
 
-update actual position of the robot with the given one 
+update actual position of the robot with the given one this function is now implemented in the class Map2D 
 
 \subsection{Variable Documentation}
 \index{motion@{motion}!at\+\_\+home@{at\+\_\+home}}
@@ -142,11 +132,18 @@ update actual position of the robot with the given one
 \subsubsection[{\texorpdfstring{behaviour}{behaviour}}]{\setlength{\rightskip}{0pt plus 5cm}motion.\+behaviour = None}\hypertarget{namespacemotion_a15d63b2a70ac940f179085ce72871c86}{}\label{namespacemotion_a15d63b2a70ac940f179085ce72871c86}
 
 
-global variables 
+all these param are now saved in the class Map2D in \hyperlink{map2Dclass_8py}{map2\+Dclass.\+py} xmax define max dimension of the map along X xmax = 30 ymax define max dimension of the map along Y ymax = 30 xhome define X house position for the robot xhome = 10 yhome define Y house position for the robot yhome = 10 xuser define X user position for the robot xuser = 20 yuser define Y user position for the robot yuser = 20 
 
-\index{motion@{motion}!goal\+\_\+position@{goal\+\_\+position}}
+global variables \index{motion@{motion}!goal\+\_\+position@{goal\+\_\+position}}
 \index{goal\+\_\+position@{goal\+\_\+position}!motion@{motion}}
 \subsubsection[{\texorpdfstring{goal\+\_\+position}{goal_position}}]{\setlength{\rightskip}{0pt plus 5cm}motion.\+goal\+\_\+position = None}\hypertarget{namespacemotion_a6886ce6765cc301867580755b977136a}{}\label{namespacemotion_a6886ce6765cc301867580755b977136a}
+\index{motion@{motion}!map\+\_\+2D@{map\+\_\+2D}}
+\index{map\+\_\+2D@{map\+\_\+2D}!motion@{motion}}
+\subsubsection[{\texorpdfstring{map\+\_\+2D}{map_2D}}]{\setlength{\rightskip}{0pt plus 5cm}motion.\+map\+\_\+2D = {\bf Map2D}()}\hypertarget{namespacemotion_a858c2a633daaa0a83b599397041f524b}{}\label{namespacemotion_a858c2a633daaa0a83b599397041f524b}
+
+
+object for access the values of the map2D 
+
 \index{motion@{motion}!pub\+\_\+actual@{pub\+\_\+actual}}
 \index{pub\+\_\+actual@{pub\+\_\+actual}!motion@{motion}}
 \subsubsection[{\texorpdfstring{pub\+\_\+actual}{pub_actual}}]{\setlength{\rightskip}{0pt plus 5cm}motion.\+pub\+\_\+actual = rospy.\+Publisher(\char`\"{}/actual\+\_\+position\+\_\+robot\char`\"{},Int\+Array,queue\+\_\+size=10)}\hypertarget{namespacemotion_a9213de80f34f408518c9265ee283b588}{}\label{namespacemotion_a9213de80f34f408518c9265ee283b588}
@@ -157,51 +154,3 @@ publisher of actual position of the robot
 publish actual position on the topic actual\+\_\+position\+\_\+robot which is subscibed by \hyperlink{namespacebehavior__manager}{behavior\+\_\+manager} in Sleep state \index{motion@{motion}!random\+\_\+time@{random\+\_\+time}}
 \index{random\+\_\+time@{random\+\_\+time}!motion@{motion}}
 \subsubsection[{\texorpdfstring{random\+\_\+time}{random_time}}]{\setlength{\rightskip}{0pt plus 5cm}float motion.\+random\+\_\+time = 0.\+5}\hypertarget{namespacemotion_a577a5f71c1bdf849f48eed17c4134bee}{}\label{namespacemotion_a577a5f71c1bdf849f48eed17c4134bee}
-\index{motion@{motion}!xhome@{xhome}}
-\index{xhome@{xhome}!motion@{motion}}
-\subsubsection[{\texorpdfstring{xhome}{xhome}}]{\setlength{\rightskip}{0pt plus 5cm}int motion.\+xhome = 10}\hypertarget{namespacemotion_a8e0cdf80e6970df1d82ccd96e3f68a1a}{}\label{namespacemotion_a8e0cdf80e6970df1d82ccd96e3f68a1a}
-
-\begin{DoxyParams}{Parameters}
-{\em xhome} & define X house position for the robot \\
-\hline
-\end{DoxyParams}
-\index{motion@{motion}!xmax@{xmax}}
-\index{xmax@{xmax}!motion@{motion}}
-\subsubsection[{\texorpdfstring{xmax}{xmax}}]{\setlength{\rightskip}{0pt plus 5cm}int motion.\+xmax = 30}\hypertarget{namespacemotion_ad15e7b7b1c76162401252ee7533515a4}{}\label{namespacemotion_ad15e7b7b1c76162401252ee7533515a4}
-
-\begin{DoxyParams}{Parameters}
-{\em xmax} & define max dimension of the map along X \\
-\hline
-\end{DoxyParams}
-\index{motion@{motion}!xuser@{xuser}}
-\index{xuser@{xuser}!motion@{motion}}
-\subsubsection[{\texorpdfstring{xuser}{xuser}}]{\setlength{\rightskip}{0pt plus 5cm}int motion.\+xuser = 20}\hypertarget{namespacemotion_ac1191b288873954280855513ee9ed701}{}\label{namespacemotion_ac1191b288873954280855513ee9ed701}
-
-\begin{DoxyParams}{Parameters}
-{\em xuser} & define X user position for the robot \\
-\hline
-\end{DoxyParams}
-\index{motion@{motion}!yhome@{yhome}}
-\index{yhome@{yhome}!motion@{motion}}
-\subsubsection[{\texorpdfstring{yhome}{yhome}}]{\setlength{\rightskip}{0pt plus 5cm}int motion.\+yhome = 10}\hypertarget{namespacemotion_ad24c81915bdf6ae465698c9f63e0c419}{}\label{namespacemotion_ad24c81915bdf6ae465698c9f63e0c419}
-
-\begin{DoxyParams}{Parameters}
-{\em yhome} & define Y house position for the robot \\
-\hline
-\end{DoxyParams}
-\index{motion@{motion}!ymax@{ymax}}
-\index{ymax@{ymax}!motion@{motion}}
-\subsubsection[{\texorpdfstring{ymax}{ymax}}]{\setlength{\rightskip}{0pt plus 5cm}int motion.\+ymax = 30}\hypertarget{namespacemotion_a93496959e7cd7b64c958600e13052b02}{}\label{namespacemotion_a93496959e7cd7b64c958600e13052b02}
-
-\begin{DoxyParams}{Parameters}
-{\em ymax} & define max dimension of the map along Y \\
-\hline
-\end{DoxyParams}
-\index{motion@{motion}!yuser@{yuser}}
-\index{yuser@{yuser}!motion@{motion}}
-\subsubsection[{\texorpdfstring{yuser}{yuser}}]{\setlength{\rightskip}{0pt plus 5cm}int motion.\+yuser = 20}\hypertarget{namespacemotion_ae750031c9c1b1e4435481bee11eaf94e}{}\label{namespacemotion_ae750031c9c1b1e4435481bee11eaf94e}
-
-\begin{DoxyParams}{Parameters}
-{\em yuser} & define Y user position for the robot \\
-\hline
-\end{DoxyParams}

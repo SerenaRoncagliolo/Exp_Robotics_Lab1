@@ -11,19 +11,21 @@ import random
 from std_msgs.msg import String # needed for subscribing strings
 from std_msgs.msg import Int32 # needed for publishing integers
 from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
+from map2Dclass import Map2D # class to simulate map of the environment
 
-## @param xmax define max dimension of the map along X
-xmax = 30
-## @param ymax define max dimension of the map along Y
-ymax = 30
-## @param xhome define X house position for the robot
-xhome = 10
-## @param yhome define Y house position for the robot
-yhome = 10
-## @param xuser define X user position for the robot
-xuser = 20
-## @param yuser define Y user position for the robot
-yuser = 20
+## all these param are now saved in the class Map2D in map2Dclass.py
+## xmax define max dimension of the map along X
+#xmax = 30
+## ymax define max dimension of the map along Y
+#ymax = 30
+## xhome define X house position for the robot
+#xhome = 10
+## yhome define Y house position for the robot
+#yhome = 10
+## xuser define X user position for the robot
+#xuser = 20
+## yuser define Y user position for the robot
+#yuser = 20
 
 ## global variables
 behaviour = None
@@ -31,6 +33,9 @@ at_home = False
 goal_position = None
 
 random_time = 0.5 # NB remember to get param from launch file
+
+## object for access the values of the map2D
+map_2D = Map2D()
 
 ## publisher of actual position of the robot
 #
@@ -48,18 +53,21 @@ def callback_get_behaviour(data):
 ## function update_position
 #
 # update actual position of the robot with the given one
+# this function is now implemented in the class Map2D
 def update_position(x,y):
-	x_actual=x
-	y_actual=y
+	global map_2D
+	map_2D.x_actual=x
+	map_2D.y_actual=y
 
 ## function move_random
 #
 # the robot moves randomly when in the NORMAL state
 def move_normal():
 	rospy.loginfo("NODE MOTION: function to move in normal mode to a random position")
+	global map_2D
 	## get random position
-	randX = random.randint(0,xmax) 
-	randY = random.randint(0,ymax) 
+	randX = random.randint(0,map_2D.x_max) 
+	randY = random.randint(0,map_2D.y_max) 
 	randPos = [randX,randY]
 	## update actual position
 	update_position(randPos[0],randPos[1])
@@ -71,7 +79,8 @@ def move_normal():
 # the robot reached the user when in the PLAY state
 def move_reach_user():
 	## get random position	
-	update_position(xhome,yhome)
+	global map_2D
+	update_position(map_2D.x_home,map_2D.y_home)
 
 
 ## function move_sleep_position
@@ -80,12 +89,13 @@ def move_reach_user():
 def move_sleep_position():
 	
 	global at_home
+	global map_2D
 	## go to the home position
 	if not at_home:
 		rospy.loginfo("NODE MOTION: move into sleep position")
 	        ## wait random time to simulate reaching the point
 	        rospy.sleep(random_time*random.randint(6,30))
-	        update_position(xhome,yhome)
+	        update_position(map_2D.x_home,map_2D.y_home)
 		rospy.loginfo('NODE MOTION:  The robot asleep at home position')
 	        at_home = True
 
@@ -104,18 +114,19 @@ def main():
 	rospy.init_node('motion')
 	
 	# we impose that the initial position corresponds to home position 
-	x_actual=xhome 
-	y_actual=yhome
-	rospy.loginfo('NODE MOTION: Initial x position: %d', x_actual)
-	rospy.loginfo('NODE MOTION: Initial y position: %d', y_actual)
+	map_2D.x_actual=map_2D.x_home 
+	map_2D.y_actual=map_2D.y_home 
+	rospy.loginfo('NODE MOTION: Initial x position: %d', map_2D.x_actual)
+	rospy.loginfo('NODE MOTION: Initial y position: %d', map_2D.y_actual)
 
 	## pub initial position
-    	pub_actual.publish([x_actual,y_actual])
+    	pub_actual.publish([map_2D.x_actual,map_2D.y_actual])
 	
 	global at_home
 	global goal_position
-	global xuser
-	global yuser
+	global map_2D
+	#global xuser
+	#global yuser
 	
 	## subscriber
 	rospy.loginfo('Subscriber /behavior')
@@ -151,7 +162,7 @@ def main():
 					rospy.loginfo("NODE MOTION: behaviour play")
 					## the robot goes to the user location
 					## we first check it is not there already
-					if not ((x_actual,y_actual) == (xuser,yuser)):
+					if not ((map_2D.x_actual,map_2D.y_actual) == (map_2D.xuser,map_2D.yuser)):
 						## call function move_reach_user() to reach the user posotion
 						move_reach_user() 
 						## wait random time to simulate the robot has moved and reached position

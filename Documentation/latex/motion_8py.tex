@@ -25,25 +25,15 @@ def \hyperlink{namespacemotion_ad6289fca8572f5af95fd28f4c2dbc68d}{motion.\+main}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{namespacemotion_ad15e7b7b1c76162401252ee7533515a4}{motion.\+xmax} = 30
-\item 
-int \hyperlink{namespacemotion_a93496959e7cd7b64c958600e13052b02}{motion.\+ymax} = 30
-\item 
-int \hyperlink{namespacemotion_a8e0cdf80e6970df1d82ccd96e3f68a1a}{motion.\+xhome} = 10
-\item 
-int \hyperlink{namespacemotion_ad24c81915bdf6ae465698c9f63e0c419}{motion.\+yhome} = 10
-\item 
-int \hyperlink{namespacemotion_ac1191b288873954280855513ee9ed701}{motion.\+xuser} = 20
-\item 
-int \hyperlink{namespacemotion_ae750031c9c1b1e4435481bee11eaf94e}{motion.\+yuser} = 20
-\item 
 \hyperlink{namespacemotion_a15d63b2a70ac940f179085ce72871c86}{motion.\+behaviour} = None
-\begin{DoxyCompactList}\small\item\em global variables \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em all these param are now saved in the class Map2D in \hyperlink{map2Dclass_8py}{map2\+Dclass.\+py} xmax define max dimension of the map along X xmax = 30 ymax define max dimension of the map along Y ymax = 30 xhome define X house position for the robot xhome = 10 yhome define Y house position for the robot yhome = 10 xuser define X user position for the robot xuser = 20 yuser define Y user position for the robot yuser = 20 \end{DoxyCompactList}\item 
 bool \hyperlink{namespacemotion_a30e58643e988d1faddb84cdfd54965f8}{motion.\+at\+\_\+home} = False
 \item 
 \hyperlink{namespacemotion_a6886ce6765cc301867580755b977136a}{motion.\+goal\+\_\+position} = None
 \item 
 float \hyperlink{namespacemotion_a577a5f71c1bdf849f48eed17c4134bee}{motion.\+random\+\_\+time} = 0.\+5
 \item 
+\hyperlink{namespacemotion_a858c2a633daaa0a83b599397041f524b}{motion.\+map\+\_\+2D} = Map2D()
+\begin{DoxyCompactList}\small\item\em object for access the values of the map2D \end{DoxyCompactList}\item 
 \hyperlink{namespacemotion_a9213de80f34f408518c9265ee283b588}{motion.\+pub\+\_\+actual} = rospy.\+Publisher(\char`\"{}/actual\+\_\+position\+\_\+robot\char`\"{},Int\+Array,queue\+\_\+size=10)
 \begin{DoxyCompactList}\small\item\em publisher of actual position of the robot \end{DoxyCompactList}\end{DoxyCompactItemize}

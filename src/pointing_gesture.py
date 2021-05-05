@@ -12,11 +12,16 @@ import random
 from std_msgs.msg import String # needed for subscribing strings
 from std_msgs.msg import Int32 # needed for publishing integers
 from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
+from map2Dclass import Map2D # class to simulate map of the environment
 
-## @param xmax define max dimension of the map along X
-xmax = 30
-## @param ymax define max dimension of the map along Y
-ymax = 30
+## xmax and ymax are now read from Map2D
+## xmax define max dimension of the map along X
+#xmax = 30
+## ymax define max dimension of the map along Y
+#ymax = 30
+
+## create object Map2D
+map_2D = Map2D()
 
 ## global variables
 behaviour = None
@@ -42,12 +47,10 @@ def callback_get_behaviour(data):
 # generate a random position to reach
 def compute_random_position():
 	## get random position
-	randX = random.randint(0,xmax) 
-	randY = random.randint(0,ymax) 
+	randX = random.randint(0,map_2D.x_max) 
+	randY = random.randint(0,map_2D.y_max) 
 	rand_position = [randX,randY]
 	return rand_position
-
-
 
 ## main function
 #

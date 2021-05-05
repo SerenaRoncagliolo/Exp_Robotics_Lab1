@@ -24,10 +24,8 @@ def \hyperlink{namespacebehavior__manager_a81416c498199e9a8bc275514afaf9944}{mai
 \item 
 float \hyperlink{namespacebehavior__manager_a53d496c1cdb4a1a21f698d78a6baeb6e}{random\+\_\+time} = 0.\+5
 \begin{DoxyCompactList}\small\item\em global variables \end{DoxyCompactList}\item 
-int \hyperlink{namespacebehavior__manager_a49c9b541017b9483f311fd59e6f7fec6}{xhome} = 10
-\item 
-int \hyperlink{namespacebehavior__manager_a8a02239f22d228c9aea6e13b43a5cdee}{yhome} = 10
-\item 
+\hyperlink{namespacebehavior__manager_afe2fe1010a2f35436221d7762966e6d7}{map\+\_\+2D} = \hyperlink{classmap2Dclass_1_1Map2D}{Map2D}()
+\begin{DoxyCompactList}\small\item\em object for access the values of the map2D \end{DoxyCompactList}\item 
 \hyperlink{namespacebehavior__manager_ac30069bca00035c62a13df72bf29a3aa}{pub\+\_\+behavior} = rospy.\+Publisher(\textquotesingle{}/behavior\textquotesingle{}, String, queue\+\_\+size=10)
 \begin{DoxyCompactList}\small\item\em publisher pub\+\_\+behavior \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -48,6 +46,13 @@ A finite-\/state machine (F\+SM) is a behavior model that consists of a finite n
 
 
 \subsection{Variable Documentation}
+\index{behavior\+\_\+manager@{behavior\+\_\+manager}!map\+\_\+2D@{map\+\_\+2D}}
+\index{map\+\_\+2D@{map\+\_\+2D}!behavior\+\_\+manager@{behavior\+\_\+manager}}
+\subsubsection[{\texorpdfstring{map\+\_\+2D}{map_2D}}]{\setlength{\rightskip}{0pt plus 5cm}behavior\+\_\+manager.\+map\+\_\+2D = {\bf Map2D}()}\hypertarget{namespacebehavior__manager_afe2fe1010a2f35436221d7762966e6d7}{}\label{namespacebehavior__manager_afe2fe1010a2f35436221d7762966e6d7}
+
+
+object for access the values of the map2D 
+
 \index{behavior\+\_\+manager@{behavior\+\_\+manager}!pub\+\_\+behavior@{pub\+\_\+behavior}}
 \index{pub\+\_\+behavior@{pub\+\_\+behavior}!behavior\+\_\+manager@{behavior\+\_\+manager}}
 \subsubsection[{\texorpdfstring{pub\+\_\+behavior}{pub_behavior}}]{\setlength{\rightskip}{0pt plus 5cm}behavior\+\_\+manager.\+pub\+\_\+behavior = rospy.\+Publisher(\textquotesingle{}/behavior\textquotesingle{}, String, queue\+\_\+size=10)}\hypertarget{namespacebehavior__manager_ac30069bca00035c62a13df72bf29a3aa}{}\label{namespacebehavior__manager_ac30069bca00035c62a13df72bf29a3aa}
@@ -62,19 +67,3 @@ the node publishes on the behavior topic using a message of type String. the que
 
 global variables 
 
-\index{behavior\+\_\+manager@{behavior\+\_\+manager}!xhome@{xhome}}
-\index{xhome@{xhome}!behavior\+\_\+manager@{behavior\+\_\+manager}}
-\subsubsection[{\texorpdfstring{xhome}{xhome}}]{\setlength{\rightskip}{0pt plus 5cm}int behavior\+\_\+manager.\+xhome = 10}\hypertarget{namespacebehavior__manager_a49c9b541017b9483f311fd59e6f7fec6}{}\label{namespacebehavior__manager_a49c9b541017b9483f311fd59e6f7fec6}
-
-\begin{DoxyParams}{Parameters}
-{\em xhome} & define X house position for the robot \\
-\hline
-\end{DoxyParams}
-\index{behavior\+\_\+manager@{behavior\+\_\+manager}!yhome@{yhome}}
-\index{yhome@{yhome}!behavior\+\_\+manager@{behavior\+\_\+manager}}
-\subsubsection[{\texorpdfstring{yhome}{yhome}}]{\setlength{\rightskip}{0pt plus 5cm}int behavior\+\_\+manager.\+yhome = 10}\hypertarget{namespacebehavior__manager_a8a02239f22d228c9aea6e13b43a5cdee}{}\label{namespacebehavior__manager_a8a02239f22d228c9aea6e13b43a5cdee}
-
-\begin{DoxyParams}{Parameters}
-{\em yhome} & define Y house position for the robot \\
-\hline
-\end{DoxyParams}

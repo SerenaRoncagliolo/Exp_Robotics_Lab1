@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normal_5fbehavior',['Normal_behavior',['../classbehavior__manager_1_1Normal__behavior.html',1,'behavior_manager']]]
+  ['map2d',['Map2D',['../classmap2Dclass_1_1Map2D.html',1,'map2Dclass']]]
 ];

@@ -17,14 +17,13 @@ import random
 from std_msgs.msg import String # needed for publishing strings
 from std_msgs.msg import Int32 # needed for publishing integers
 from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
+from map2Dclass import Map2D # class to simulate map of the environment
 
 ## global variables
 random_time = 0.5 # NB remember to get param from launch file
 
-## @param xhome define X house position for the robot
-xhome = 10
-## @param yhome define Y house position for the robot
-yhome = 10
+## object for access the values of the map2D
+map_2D = Map2D()
 
 ## publisher pub_behavior
 #
@@ -115,8 +114,6 @@ class Sleep_behavior(smach.State):
 	# - publish "sleep" (String) on the topic behavior
 	# - publish actual position (IntArray [x,y]) of the robot, so that the motion node can check if the robot is already at home or not
 	def execute(self, userdata):
-		global xhome
-		global yhome
 		# rospy.sleep(2)
 		rospy.loginfo("NODE BEHAVIOR_MANAGER: publish sleep behavior")
 		pub_behavior.publish("sleep") 
@@ -128,11 +125,11 @@ class Sleep_behavior(smach.State):
 		while not rospy.is_shutdown():  
 			# check it at home position [xhome, yhome] --> NOT WORKING CHIEDERE PROF
 			# rospy.loginfo("if(self.position == (xhome,yhome))")
-			# if(self.position == (xhome ,yhome)): --> NOT WORKING CHIEDERE PROF
-			## it should sleep for some time
-			rospy.loginfo('Wait some time to wake up')
-			rospy.sleep(random_time*random.randint(1,20))
-			return 'stop_sleep'
+			if(self.position == (map_2D.x_home ,map_2D.y_home)): --> NOT WORKING CHIEDERE PROF
+				## it should sleep for some time
+				rospy.loginfo('Wait some time to wake up')
+				rospy.sleep(random_time*random.randint(1,20))
+				return 'stop_sleep'
 			self.rate.sleep
 	## method read_actual_position
 	#
