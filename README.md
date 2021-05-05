@@ -117,10 +117,10 @@ The robot can assume three behaviors:
 
 
 **Components**  
-* **Gesture Simulator**
-* **Voice Command Simulator**  
-* **Behavior Command Manager**
-* **Motion**
+* **Voice Command Simulator**:  this component simulates the voice command "play" of the user; the command is published as a ROS message on the topic /voice_command;
+* **Gesture Simulator**: this component simulates the goal position given by the user to the robot when in play mode; the position is published as a custom ROS message on the topic /pointing_gesture; in this simulation the user give the position at random intervals;
+* **Behavior Command Manager**_ this component simulate the Finite State Machine (FSM) and control the switching between the robot behaviors: Normal, Sleep and Play; this component publishes the new behavior as a ROS message on the topic /behavior; the other components subscribe to this topic and change function accordingly to the given behavior. The different behavior are explained later in this report.
+* **Motion**: this component moves the robot using time delays to simulate it reaching the new positions, following the given behavior from the FSM. It makes use of a 2D map whose parameters are defined in a separate class; the map class is mainly used to save the updated values of the actual position everytime the behavior changes and a new function is executed. When in NORMAL state, it makes the robot moving randomly across the map; in the SLEEP state, the robot goes to the home position and rest theere until it goes back to normals; in the PLAY state, the robot goes first to the user, it waits for a goal position and then reaches it.
   
 ### State Machine
 
