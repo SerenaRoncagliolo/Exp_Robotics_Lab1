@@ -12,7 +12,7 @@ import random
 from std_msgs.msg import String # needed for subscribing strings
 from std_msgs.msg import Int32 # needed for publishing integers
 from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
-from map2Dclass import Map2D # class to simulate map of the environment
+from classes.map2Dclass import Map2D # class to simulate map of the environment
 
 ## xmax and ymax are now read from Map2D
 ## xmax define max dimension of the map along X
