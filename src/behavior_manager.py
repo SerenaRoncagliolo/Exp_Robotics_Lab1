@@ -17,7 +17,7 @@ import random
 from std_msgs.msg import String # needed for publishing strings
 from std_msgs.msg import Int32 # needed for publishing integers
 from first_assignment.msg import IntArray # I need to publish/subscribe [x,y]
-from classes.map2Dclass import Map2D # class to simulate map of the environment
+from map2Dclass import Map2D # class to simulate map of the environment
 
 ## global variables
 random_time = 0.5 # NB remember to get param from launch file
@@ -65,7 +65,7 @@ class Normal_behavior(smach.State):
 		pub_behavior.publish("normal") 
 		# self.counter = random.randint(1,2) 
 		## check if the user command is received, subscribe to the topic voice_command on which voice_command.py publishes "play"
-		rospy.loginfo("check if the user command is received")
+		rospy.loginfo("NODE BEHAVIOR: check if the user command is received")
         	rospy.Subscriber("/voice_command", String, self.get_command)
 
 		while not rospy.is_shutdown():
@@ -125,7 +125,7 @@ class Sleep_behavior(smach.State):
 		while not rospy.is_shutdown():  
 			# check it at home position [xhome, yhome] --> NOT WORKING CHIEDERE PROF
 			# rospy.loginfo("if(self.position == (xhome,yhome))")
-			if(self.position == (map_2D.x_home ,map_2D.y_home)): --> NOT WORKING CHIEDERE PROF
+			if(self.position == (map_2D.x_home ,map_2D.y_home)): # --> NOT WORKING CHIEDERE PROF
 				## it should sleep for some time
 				rospy.loginfo('Wait some time to wake up')
 				rospy.sleep(random_time*random.randint(1,20))
@@ -169,7 +169,8 @@ class Play_behavior(smach.State):
 		# motion read the goal position from the poiting gesture which keeps publishing 
 		# check the actual position of the robot
 		rospy.Subscriber("/actual_position_robot", IntArray, self.read_actual_position)
-		
+		# wait some random time
+		rospy.sleep(random_time*random.randint(10,30))
 		return 'stop_play'
 	## method read_actual_position
 	#

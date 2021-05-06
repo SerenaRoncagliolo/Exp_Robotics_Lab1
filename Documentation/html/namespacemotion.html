@@ -112,6 +112,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aea14bdb6100f2e8e6035a4487c861bc7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#aea14bdb6100f2e8e6035a4487c861bc7">callback_get_position</a> (position)</td></tr>
 <tr class="memdesc:aea14bdb6100f2e8e6035a4487c861bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">function callback_get_position  <a href="#aea14bdb6100f2e8e6035a4487c861bc7">More...</a><br /></td></tr>
 <tr class="separator:aea14bdb6100f2e8e6035a4487c861bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58accc2356096af3ae30fe9442a1a482"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#a58accc2356096af3ae30fe9442a1a482">reach_goal</a> ()</td></tr>
+<tr class="memdesc:a58accc2356096af3ae30fe9442a1a482"><td class="mdescLeft">&#160;</td><td class="mdescRight">function reach_goal  <a href="#a58accc2356096af3ae30fe9442a1a482">More...</a><br /></td></tr>
+<tr class="separator:a58accc2356096af3ae30fe9442a1a482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6289fca8572f5af95fd28f4c2dbc68d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#ad6289fca8572f5af95fd28f4c2dbc68d">main</a> ()</td></tr>
 <tr class="memdesc:ad6289fca8572f5af95fd28f4c2dbc68d"><td class="mdescLeft">&#160;</td><td class="mdescRight">main function  <a href="#ad6289fca8572f5af95fd28f4c2dbc68d">More...</a><br /></td></tr>
 <tr class="separator:ad6289fca8572f5af95fd28f4c2dbc68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,8 +126,8 @@ Variables</h2></td></tr>
 <tr class="separator:a15d63b2a70ac940f179085ce72871c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30e58643e988d1faddb84cdfd54965f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#a30e58643e988d1faddb84cdfd54965f8">at_home</a> = False</td></tr>
 <tr class="separator:a30e58643e988d1faddb84cdfd54965f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6886ce6765cc301867580755b977136a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#a6886ce6765cc301867580755b977136a">goal_position</a> = None</td></tr>
-<tr class="separator:a6886ce6765cc301867580755b977136a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6427953689c120f9b8a1cb3646733b85"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#a6427953689c120f9b8a1cb3646733b85">goal</a> = None</td></tr>
+<tr class="separator:a6427953689c120f9b8a1cb3646733b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a577a5f71c1bdf849f48eed17c4134bee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#a577a5f71c1bdf849f48eed17c4134bee">random_time</a> = 0.5</td></tr>
 <tr class="separator:a577a5f71c1bdf849f48eed17c4134bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858c2a633daaa0a83b599397041f524b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotion.html#a858c2a633daaa0a83b599397041f524b">map_2D</a> = <a class="el" href="classmap2Dclass_1_1Map2D.html">Map2D</a>()</td></tr>
@@ -246,6 +249,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a58accc2356096af3ae30fe9442a1a482"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def motion.reach_goal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function reach_goal </p>
+<p>move to the goal position given by the user pointing gesture </p>
+
+</div>
+</div>
 <a class="anchor" id="a9a93c5fd6c8938302c99cdc865f34cb8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -303,12 +324,12 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6886ce6765cc301867580755b977136a"></a>
+<a class="anchor" id="a6427953689c120f9b8a1cb3646733b85"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">motion.goal_position = None</td>
+          <td class="memname">motion.goal = None</td>
         </tr>
       </table>
 </div><div class="memdoc">

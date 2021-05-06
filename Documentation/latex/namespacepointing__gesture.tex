@@ -9,7 +9,7 @@ It simulate the pointing gesture command given by the user it generates pointing
 \begin{DoxyCompactItemize}
 \item 
 def \hyperlink{namespacepointing__gesture_a0ccd291e8028504e94f37e49a5411b3d}{callback\+\_\+get\+\_\+behaviour} (data)
-\begin{DoxyCompactList}\small\item\em callback function callback\+\_\+get\+\_\+behavior \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em publisher send pointing gesture, send a random position pub\+\_\+pointing\+\_\+gesture = rospy.\+Publisher(\char`\"{}/pointing\+\_\+gesture\char`\"{}, Int\+Array, queue\+\_\+size=10) \end{DoxyCompactList}\item 
 def \hyperlink{namespacepointing__gesture_a3f243853d60010878f1a2dbbe2338dbd}{compute\+\_\+random\+\_\+position} ()
 \begin{DoxyCompactList}\small\item\em function compute\+\_\+random\+\_\+position \end{DoxyCompactList}\item 
 def \hyperlink{namespacepointing__gesture_a0246e9d31b3d0b62a01bdb5b697df181}{main} ()
@@ -22,9 +22,7 @@ def \hyperlink{namespacepointing__gesture_a0246e9d31b3d0b62a01bdb5b697df181}{mai
 \hyperlink{namespacepointing__gesture_a16dc32bb0bc4ae96f247e60f4671e69f}{behaviour} = None
 \begin{DoxyCompactList}\small\item\em global variables \end{DoxyCompactList}\item 
 float \hyperlink{namespacepointing__gesture_a5368d56de06c11e03076a319bb31d276}{random\+\_\+time} = 0.\+5
-\item 
-\hyperlink{namespacepointing__gesture_a0a5243d3050e55cb47090bcfece22c5d}{pub\+\_\+pointing\+\_\+gesture} = rospy.\+Publisher(\char`\"{}/pointing\+\_\+gesture\char`\"{}, Int\+Array, queue\+\_\+size=10)
-\begin{DoxyCompactList}\small\item\em publisher send pointing gesture, send a random position \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -40,7 +38,9 @@ It simulate the pointing gesture command given by the user it generates pointing
 )}\hypertarget{namespacepointing__gesture_a0ccd291e8028504e94f37e49a5411b3d}{}\label{namespacepointing__gesture_a0ccd291e8028504e94f37e49a5411b3d}
 
 
-callback function callback\+\_\+get\+\_\+behavior 
+publisher send pointing gesture, send a random position pub\+\_\+pointing\+\_\+gesture = rospy.\+Publisher(\char`\"{}/pointing\+\_\+gesture\char`\"{}, Int\+Array, queue\+\_\+size=10) 
+
+callback function callback\+\_\+get\+\_\+behavior
 
 subscriber callback to the behaviour topic \index{pointing\+\_\+gesture@{pointing\+\_\+gesture}!compute\+\_\+random\+\_\+position@{compute\+\_\+random\+\_\+position}}
 \index{compute\+\_\+random\+\_\+position@{compute\+\_\+random\+\_\+position}!pointing\+\_\+gesture@{pointing\+\_\+gesture}}
@@ -81,13 +81,6 @@ global variables
 
 xmax and ymax are now read from Map2D xmax define max dimension of the map along X xmax = 30 ymax define max dimension of the map along Y ymax = 30 
 
-create object Map2D \index{pointing\+\_\+gesture@{pointing\+\_\+gesture}!pub\+\_\+pointing\+\_\+gesture@{pub\+\_\+pointing\+\_\+gesture}}
-\index{pub\+\_\+pointing\+\_\+gesture@{pub\+\_\+pointing\+\_\+gesture}!pointing\+\_\+gesture@{pointing\+\_\+gesture}}
-\subsubsection[{\texorpdfstring{pub\+\_\+pointing\+\_\+gesture}{pub_pointing_gesture}}]{\setlength{\rightskip}{0pt plus 5cm}pointing\+\_\+gesture.\+pub\+\_\+pointing\+\_\+gesture = rospy.\+Publisher(\char`\"{}/pointing\+\_\+gesture\char`\"{}, Int\+Array, queue\+\_\+size=10)}\hypertarget{namespacepointing__gesture_a0a5243d3050e55cb47090bcfece22c5d}{}\label{namespacepointing__gesture_a0a5243d3050e55cb47090bcfece22c5d}
-
-
-publisher send pointing gesture, send a random position 
-
-\index{pointing\+\_\+gesture@{pointing\+\_\+gesture}!random\+\_\+time@{random\+\_\+time}}
+create object Map2D \index{pointing\+\_\+gesture@{pointing\+\_\+gesture}!random\+\_\+time@{random\+\_\+time}}
 \index{random\+\_\+time@{random\+\_\+time}!pointing\+\_\+gesture@{pointing\+\_\+gesture}}
 \subsubsection[{\texorpdfstring{random\+\_\+time}{random_time}}]{\setlength{\rightskip}{0pt plus 5cm}float pointing\+\_\+gesture.\+random\+\_\+time = 0.\+5}\hypertarget{namespacepointing__gesture_a5368d56de06c11e03076a319bb31d276}{}\label{namespacepointing__gesture_a5368d56de06c11e03076a319bb31d276}
