@@ -95,15 +95,16 @@ The documentation of the project can be found in the folder _Documentation_
 The human can interact with the robot by using pointing gestures or spoken commands.
 The robot can assume three behaviors:
 
-* **sleep**: the robot returns to a defined position inside the surrounding environment, it sleeps for some time and, finally, it wakes up and assumes normal behavior;
-* **play**: the robot approaches the person, it waits for a command to follow and it finally goes back to the person;
-* **normal**: the robot moves inside the environment.
+* **Sleep**: the robot returns to a defined position inside the surrounding environment, it sleeps for some time and, finally, it wakes up and assumes normal behavior;
+* **Play**: the robot approaches the person, it waits for a command to follow and it finally goes back to the person;
+* **Normal**: the robot moves inside the environment.
 
-### Built With
+<!--
+## Built With
 
 * []()
 * []()
-* []()
+* []() -->
 
 ## Software  Architecture
 
@@ -143,8 +144,22 @@ The robot can assume three behaviors:
   
   </li>
  </ol>  
+
+## Repository Organization
+
+* **Documentation**: it contains the html and latex documentation of the repository generated using _Doxygen_;
+* **Images**: it contains the images used in the _readme_ file;
+* **launch**: it contains the launch file used to run the project;
+* **msg**: it contains the custom message _IntArray_ used to publish and subscribe the position of the robot;
+* **src**: it contains the python scripts describing the four components and the class Map2Dclass to represent the 2D map in which the robot moves.
  
-<!-- GETTING STARTED -->
+## ROS Topics and Messages
+* /behaviour → topic on which the current behaviour of the robot is published as a String by _behavior_manager.py_ and subscribed by all the components
+* /voice_command → topic on which the command "start playing" given by the user is published as a String by _voice_command.py_ and subscribed by _behavior_manager.py_ 
+* /pointing_gesture → topic on which the goal position of the robot is published by _pointing_gesture.py_ as an IntArray (which corresponds to have int[]) and subscribed by _motion.py_
+* /actual_position_robot → topic on which the current position of the robot is published by _motion.py_ as an IntArray and subscribed by _behavior_manager.py_
+
+<!-- GETTING STARTED
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
@@ -154,28 +169,29 @@ To get a local copy up and running follow these simple steps.
 This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install npm@latest -g 
   ```
-
+ -->
 ### Installation
 
-1. Clone the repo
+1. Clone the repository
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/SerenaRoncagliolo/Exp_Robotics_Lab1.git
    ```
-2. Install NPM packages
+2. Enter the workspace Exp_Robotics_Lab1 and run:
    ```sh
-   npm install
+   catkin_make
+   source devel/setup.bash
    ```
-
-
+3. Launch the project:
+    ```sh
+   roslaunch Exp_Robotics_Lab1 petbehavior.launch
+   ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Here a short [video](https://github.com/github_username/repo_name/issues) showing the result of the project when running: 
 
 
 
