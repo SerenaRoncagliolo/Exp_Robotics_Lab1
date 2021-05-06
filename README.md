@@ -153,6 +153,12 @@ The robot can assume three behaviors:
 * **msg**: it contains the custom message _IntArray_ used to publish and subscribe the position of the robot;
 * **src**: it contains the python scripts describing the four components and the class Map2Dclass to represent the 2D map in which the robot moves.
  
+## ROS Topics and Messages
+* /behaviour → topic on which the current behaviour of the robot is published as a String by _behavior_manager.py_ and subscribed by all the components
+* /voice_command → topic on which the command "start playing" given by the user is published as a String by _voice_command.py_ and subscribed by _behavior_manager.py_ 
+* /pointing_gesture → topic on which the goal position of the robot is published by _pointing_gesture.py_ as an IntArray (which corresponds to have int[]) and subscribed by _motion.py_
+* /actual_position_robot → topic on which the current position of the robot is published by _motion.py_ as an IntArray and subscribed by _behavior_manager.py_
+
 <!-- GETTING STARTED
 ## Getting Started
 
