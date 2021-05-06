@@ -99,7 +99,8 @@ The robot can assume three behaviors:
 * **Play**: the robot approaches the person, it waits for a command to follow and it finally goes back to the person;
 * **Normal**: the robot moves inside the environment.
 
-#<!--## Built With
+<!--
+## Built With
 
 * []()
 * []()
