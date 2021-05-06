@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <launch>
 	<param name="timescale" value="1" />
-
-	<node name="simulator" pkg="first_assignment" type="simulator.py" output="screen" />
-	<node name="behavior_manager" pkg="first_assignment" type="behavior_manager.py" output="screen" />
-	<node name="motion" pkg="first_assignment" type="motion.py" output="screen" />
-	<node name="pointin_gesture" pkg="first_assignment" type="pointin_gesture.py" output="screen" />
+	
 	<node name="voice_command" pkg="first_assignment" type="voice_command.py" output="screen" />
+	<node name="pointing_gesture" pkg="first_assignment" type="pointing_gesture.py" output="screen" />	
+	<node name="motion" pkg="first_assignment" type="motion.py" output="screen" />
+	<node name="behavior_manager" pkg="first_assignment" type="behavior_manager.py" output="screen" />
+	
 </launch>

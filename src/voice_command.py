@@ -40,14 +40,21 @@ def main():
 	rospy.loginfo('VOICE COMMMAND NODE: Subscriber to /behavior topic')
 	rospy.Subscriber("/behavior", String, callback_get_behaviour)
 	rate = rospy.Rate(100)
+	
 	while not rospy.is_shutdown():
+
+		#if(behaviour == None):
+		#	pub_command_voice.publish("play")
+		#else:
+			# check robot behavior
+		#	if(behaviour == "normal"):
+		#rospy.loginfo("VOICE COMMAND: give voice command start playing")
 		## wait random time
-        	rospy.sleep(random_time*random.randint(1,30))
-		# check robot behavior
-		if(behaviour == "normal"):
-			## publisher, give command to start playing
-			rospy.loginfo("VOICE COMMAND: give voice command start playing")
-			pub_command_voice.publish("play")
+        	rospy.sleep(random_time*random.randint(15,30))
+		
+		## publisher, give command to start playing
+		pub_command_voice.publish("play")
+		
 
 
 if __name__ == "__main__":

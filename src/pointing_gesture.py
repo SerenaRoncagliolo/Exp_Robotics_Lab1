@@ -36,10 +36,9 @@ random_time = 0.5 # NB remember to get param from launch file
 #
 # subscriber callback to the behaviour topic
 def callback_get_behaviour(data):
-	rospy.loginfo('Executing callback behavior')
 	global behaviour 
 	behaviour = data.data
-	print("Current behaviour: ", behaviour)
+	# print("Current behaviour: ", behaviour)
 
 
 ## function compute_random_position
@@ -63,24 +62,23 @@ def main():
 	
 	## subscriber
 	# read behavior
-	rospy.loginfo('NODE POINTING: Subscriber /behavior')
+	rospy.loginfo('NODE POINTING: Subscriber to topic /behavior')
 	rospy.Subscriber("/behavior", String, callback_get_behaviour)			
 
 	## publisher
-	# send pointing gesture, send a random position 
+	# define publisher which send pointing gesture, send a random position 
 	pub_pointing_gesture = rospy.Publisher("/pointing_gesture", IntArray, queue_size=10)
 
 	while not rospy.is_shutdown():
 		## wait random time
-        	rospy.sleep(random_time*random.randint(1,5))
+        	rospy.sleep(random_time*random.randint(5,20))
 		## publish position
 		random_position = compute_random_position()
 		# print("Random position: ", random_position)
 		pub_pointing_gesture.publish(random_position)
-		rospy.loginfo("NODE POINTING: goal position published ", random_position)
+		print("NODE POINTING: goal position published: ", random_position)
 
 		rate.sleep()
 	
-
 if __name__ == "__main__":
     main()

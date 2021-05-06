@@ -61,7 +61,6 @@ class Normal_behavior(smach.State):
 	#	- trigger sleeping timer at random time
 	#	- goes into SLEEP state
 	def execute(self, userdata):
-		#rospy.sleep(2)
 		pub_behavior.publish("normal") 
 		# self.counter = random.randint(1,2) 
 		## check if the user command is received, subscribe to the topic voice_command on which voice_command.py publishes "play"
@@ -71,13 +70,12 @@ class Normal_behavior(smach.State):
 		while not rospy.is_shutdown():
 			# if command play received
 			# check if boolean play_command_received is True
-			if(self.play_command_received):
-				self.play_command_received = False
-				return 'start_play'
+			if(random.randint(1,17) == 10):
+				return 'start_sleep' 			
 			else:
-				# simulating triggering of sleep timer at random time
-				if(random.randint(1,200) == 17):
-					return 'start_sleep' 
+				if(self.play_command_received):
+					self.play_command_received = False
+					return 'start_play'
 			self.rate.sleep()
 	## method get_command
 	#
@@ -114,7 +112,6 @@ class Sleep_behavior(smach.State):
 	# - publish "sleep" (String) on the topic behavior
 	# - publish actual position (IntArray [x,y]) of the robot, so that the motion node can check if the robot is already at home or not
 	def execute(self, userdata):
-		# rospy.sleep(2)
 		rospy.loginfo("NODE BEHAVIOR_MANAGER: publish sleep behavior")
 		pub_behavior.publish("sleep") 
 		# when "sleep" is published on the topic behavior, the node motion should subscribe to it 
@@ -123,12 +120,11 @@ class Sleep_behavior(smach.State):
 		rospy.Subscriber("/actual_position_robot", IntArray, self.read_actual_position)
 		# we call the callback read_actual_position to save the values in self.position 
 		while not rospy.is_shutdown():  
-			# check it at home position [xhome, yhome] --> NOT WORKING CHIEDERE PROF
-			# rospy.loginfo("if(self.position == (xhome,yhome))")
-			if(self.position == (map_2D.x_home ,map_2D.y_home)): # --> NOT WORKING CHIEDERE PROF
+			# check it at home position [xhome, yhome]
+			if(self.position == (map_2D.x_home ,map_2D.y_home)):
 				## it should sleep for some time
-				rospy.loginfo('Wait some time to wake up')
-				rospy.sleep(random_time*random.randint(1,20))
+				rospy.loginfo('NODE BEHAVIOR: Wait some time to wake up')
+				rospy.sleep(random_time*random.randint(10,15))
 				return 'stop_sleep'
 			self.rate.sleep
 	## method read_actual_position
@@ -170,7 +166,7 @@ class Play_behavior(smach.State):
 		# check the actual position of the robot
 		rospy.Subscriber("/actual_position_robot", IntArray, self.read_actual_position)
 		# wait some random time
-		rospy.sleep(random_time*random.randint(10,30))
+		rospy.sleep(random_time*random.randint(30,80))
 		return 'stop_play'
 	## method read_actual_position
 	#
