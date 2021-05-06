@@ -159,6 +159,14 @@ The robot can assume three behaviors:
 * /pointing_gesture → topic on which the goal position of the robot is published by _pointing_gesture.py_ as an IntArray (which corresponds to have int[]) and subscribed by _motion.py_
 * /actual_position_robot → topic on which the current position of the robot is published by _motion.py_ as an IntArray and subscribed by _behavior_manager.py_
 
+## Rqt_graphs 
+
+<p align="center">
+<a>
+    <img src="images/rqt.PNG" width="600" height="">
+</a>
+</p>
+
 <!-- GETTING STARTED
 ## Getting Started
 
