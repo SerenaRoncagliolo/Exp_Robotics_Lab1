@@ -2,7 +2,7 @@
 \label{namespacepointing__gesture}\index{pointing\+\_\+gesture@{pointing\+\_\+gesture}}
 
 
-It simulate the pointing gesture command given by the user it generates pointing gestures (as Int\+Array) at random times.  
+It simulate the pointing gesture command given by the user it generates pointing gestures given as an array int\mbox{[}\mbox{]} (ros message Int\+Array) at random times.  
 
 
 \subsection*{Functions}
@@ -18,7 +18,7 @@ def \hyperlink{namespacepointing__gesture_a0246e9d31b3d0b62a01bdb5b697df181}{mai
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{namespacepointing__gesture_a08e4083045796d171c79d2538f1b9948}{map\+\_\+2D} = \hyperlink{classmap2Dclass_1_1Map2D}{Map2D}()
-\begin{DoxyCompactList}\small\item\em xmax and ymax are now read from Map2D xmax define max dimension of the map along X xmax = 30 ymax define max dimension of the map along Y ymax = 30 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em object Map2D, we need it to access the values describing the map 2D within which the robot is moving \end{DoxyCompactList}\item 
 \hyperlink{namespacepointing__gesture_a16dc32bb0bc4ae96f247e60f4671e69f}{behaviour} = None
 \begin{DoxyCompactList}\small\item\em global variables \end{DoxyCompactList}\item 
 float \hyperlink{namespacepointing__gesture_a5368d56de06c11e03076a319bb31d276}{random\+\_\+time} = 0.\+5
@@ -26,7 +26,7 @@ float \hyperlink{namespacepointing__gesture_a5368d56de06c11e03076a319bb31d276}{r
 
 
 \subsection{Detailed Description}
-It simulate the pointing gesture command given by the user it generates pointing gestures (as Int\+Array) at random times. 
+It simulate the pointing gesture command given by the user it generates pointing gestures given as an array int\mbox{[}\mbox{]} (ros message Int\+Array) at random times. 
 
 \subsection{Function Documentation}
 \index{pointing\+\_\+gesture@{pointing\+\_\+gesture}!callback\+\_\+get\+\_\+behaviour@{callback\+\_\+get\+\_\+behaviour}}
@@ -79,8 +79,8 @@ global variables
 \subsubsection[{\texorpdfstring{map\+\_\+2D}{map_2D}}]{\setlength{\rightskip}{0pt plus 5cm}pointing\+\_\+gesture.\+map\+\_\+2D = {\bf Map2D}()}\hypertarget{namespacepointing__gesture_a08e4083045796d171c79d2538f1b9948}{}\label{namespacepointing__gesture_a08e4083045796d171c79d2538f1b9948}
 
 
-xmax and ymax are now read from Map2D xmax define max dimension of the map along X xmax = 30 ymax define max dimension of the map along Y ymax = 30 
+object Map2D, we need it to access the values describing the map 2D within which the robot is moving 
 
-create object Map2D \index{pointing\+\_\+gesture@{pointing\+\_\+gesture}!random\+\_\+time@{random\+\_\+time}}
+\index{pointing\+\_\+gesture@{pointing\+\_\+gesture}!random\+\_\+time@{random\+\_\+time}}
 \index{random\+\_\+time@{random\+\_\+time}!pointing\+\_\+gesture@{pointing\+\_\+gesture}}
 \subsubsection[{\texorpdfstring{random\+\_\+time}{random_time}}]{\setlength{\rightskip}{0pt plus 5cm}float pointing\+\_\+gesture.\+random\+\_\+time = 0.\+5}\hypertarget{namespacepointing__gesture_a5368d56de06c11e03076a319bb31d276}{}\label{namespacepointing__gesture_a5368d56de06c11e03076a319bb31d276}

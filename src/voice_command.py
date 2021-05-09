@@ -8,7 +8,7 @@ import rospy
 import time
 import random
 
-from std_msgs.msg import String
+from std_msgs.msg import String  # needed for publishing/subscribing strings
 
 ## global variables
 behaviour = None
@@ -46,16 +46,18 @@ def main():
 		#if(behaviour == None):
 		#	pub_command_voice.publish("play")
 		#else:
-			# check robot behavior
-		#	if(behaviour == "normal"):
-		#rospy.loginfo("VOICE COMMAND: give voice command start playing")
-		## wait random time
-        	rospy.sleep(random_time*random.randint(15,30))
 		
-		## publisher, give command to start playing
-		pub_command_voice.publish("play")
+		# check robot behavior
+		if(behaviour == "normal"):
+			#print("NODE VOICE COMMAND: normal ok")
+			#rospy.loginfo("VOICE COMMAND: give voice command start playing")
+			## wait random time
+			rospy.sleep(random_time*random.randint(17,30))
 		
-
+			## publisher, give command to start playing
+			pub_command_voice.publish("play")
+		
+	
 
 if __name__ == "__main__":
 	main()
