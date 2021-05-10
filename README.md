@@ -145,19 +145,18 @@ The robot can assume three behaviors:
   </li>
  </ol>  
 
-## Repository Organization
-
-* **Documentation**: it contains the html and latex documentation of the repository generated using _Doxygen_;
-* **Images**: it contains the images used in the _readme_ file;
-* **launch**: it contains the launch file used to run the project;
-* **msg**: it contains the custom message _IntArray_ used to publish and subscribe the position of the robot;
-* **src**: it contains the python scripts describing the four components and the class Map2Dclass to represent the 2D map in which the robot moves.
- 
-## ROS Topics and Messages
+### ROS Topics
+The following ROS topics has been defined:
 * /behaviour → topic on which the current behaviour of the robot is published as a String by _behavior_manager.py_ and subscribed by all the components
 * /voice_command → topic on which the command "start playing" given by the user is published as a String by _voice_command.py_ and subscribed by _behavior_manager.py_ 
 * /pointing_gesture → topic on which the goal position of the robot is published by _pointing_gesture.py_ as an IntArray (which corresponds to have int[]) and subscribed by _motion.py_
 * /actual_position_robot → topic on which the current position of the robot is published by _motion.py_ as an IntArray and subscribed by _behavior_manager.py_
+
+### ROS Messages
+The position of the robot within the map is describe by a x-axis coordinate and y-axis coordinate. To publish or subscribe the actual position of the robot when needed, we used the custom message IntArray:
+  ```sh
+  int32[] data
+  ```
 
 ## Rqt_graphs 
 
@@ -167,31 +166,42 @@ The robot can assume three behaviors:
 </a>
 </p>
 
+## Repository Organization
+
+* **Documentation**: it contains the html and latex documentation of the repository generated using _Doxygen_;
+* **Images**: it contains the images used in the _readme_ file;
+* **launch**: it contains the launch file used to run the project;
+* **msg**: it contains the custom message _IntArray_ used to publish and subscribe the position of the robot;
+* **src**: it contains the python scripts describing the four components and the class Map2Dclass to represent the 2D map in which the robot moves.
+ 
+
 <!-- GETTING STARTED
-## Getting Started
+## Getting Started 
 
-To get a local copy up and running follow these simple steps.
+To get a local copy up and running follow these simple steps. -->
 
-### Prerequisites
+## Prerequisites
+### Ros
+This project is developed using [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu). Follow [instructions](http://wiki.ros.org/kinetic/Installation/Ubuntu) for installation.
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g 
-  ```
- -->
+### Python
+This project is developed using [Python3](https://www.python.org/downloads/). Follow [instructions](https://www.python.org/downloads/) for installation.
+
 ### Installation
-
+This instructions assumes that you have installed **catkin**, if not it is necessary to follow the instruction at [catkin installation](https://wiki.ros.org/catkin#Installing_catkin). After installation source the environment:
+ ```sh
+ $ source /opt/ros/kinetic/setup.bash
+ ```
 1. Clone the repository
    ```sh
    git clone https://github.com/SerenaRoncagliolo/Exp_Robotics_Lab1.git
    ```
-2. Enter the workspace Exp_Robotics_Lab1 and run:
+3. Enter the workspace Exp_Robotics_Lab1 and run:
    ```sh
    catkin_make
    source devel/setup.bash
    ```
-3. Launch the project:
+4. Launch the project:
     ```sh
    roslaunch Exp_Robotics_Lab1 petbehavior.launch
    ```
@@ -201,13 +211,28 @@ This is an example of how to list things you need to use the software and how to
 
 Here a short [video](https://github.com/github_username/repo_name/issues) showing the result of the project when running: 
 
+## Working hypothesis and environment
 
+The robot and the user are simulated by the described components:
+* the voice command (simulated by _voice_command.py_) and the goal position (simulated by _pointing_gesture.py_) are given by ROS messages which are continuously sent at random time interval 
+* the time taken to move within the environment is simulated by a random sleep time interval and the reaching of the given position is simply simulated by updating the actual position of the robot given the new coordinates;
+* the 2D map is simulated using int values describing the total dimension and the specific coordinates such as _home position_, _user position_ and _robot position_.
 
-<!-- ROADMAP 
-## Roadmap
+### Systems features
+The core feature of the system is the Finite State Machine (FSM) implemented using the ROS-independent Python library _SMACH_. The actual implementation represent the state machine diagram described above in this report.
+The system components publish and subscribe information on specific topics at random time. Still, the system work correctly and the simulation is effective as shown in this [video](https://web.microsoftstream.com/video/84924c25-60f3-4475-a942-404971452487). 
+When launching the system, all four components are activated, thus the _pointing_gesture.py_ and _voice_command.py_ start publishing goal position and _"play"_ command respectively. The system starts in _Normal_ behavior and it simulates the robot moving randomly by reaching given casual coordinates [x,y].
+When the system is in _Normal_ behavior, it could transit to _Sleep_ or _Play_. At random time, the sleep timer is triggered and the system switches to _Sleep_ behavior, ti reaches the home position given, then it waits there some time to _wake up_ and go back to _Normal_ behavior. The system is back in _Normal_ state and it start moving randomly again. When the voice command _"play"_ is given, the system switches to _Play_ behavior: the robot moves to user position, it waits for the pointing gesture to be subscribed by _motion.py_, it reaches the given position and goes back to the user. After a random interval time, the FSM goes back to normal mode.
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).-->
+### Systems limitations
 
+Some system transistions should be improved, since they are given by a random probability which is not optimal, since it is possible that the system keeps executing the same transition for a long time interval.
+Furthermore, when the robot enters play mode, after reaching the user, sometimes it does not obtain a goal position, since it published at random time. Also, if the commands arrive when the robot can't handle them, the system will ignore them.
+
+### Future work
+
+The motion controll should be improved, a better solution would be to implement it as a ROS service. Furthermore, the robot motion should not be simulated using random interval time, but should be proportional to the actual distance the robot has to cover to obtain a more realistic behavior.
+Another possibility is to take into account user commands in this architecture.
 
 
 <!-- CONTRIBUTING 
