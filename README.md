@@ -206,11 +206,11 @@ This instructions assumes that you have installed **catkin**, if not it is neces
    roslaunch Exp_Robotics_Lab1 petbehavior.launch
    ```
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE EXAMPLES
 ## Usage
 
 Here a short [video](https://github.com/github_username/repo_name/issues) showing the result of the project when running: 
-
+ -->
 ## Working hypothesis and environment
 
 The robot and the user are simulated by the described components:
