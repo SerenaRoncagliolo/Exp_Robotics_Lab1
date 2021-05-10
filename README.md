@@ -187,7 +187,7 @@ This project is developed using [ROS Kinetic](http://wiki.ros.org/kinetic/Instal
 ### Python
 This project is developed using [Python3](https://www.python.org/downloads/). Follow [instructions](https://www.python.org/downloads/) for installation.
 
-### Installation
+## Installation
 This instructions assumes that you have installed **catkin**, if not it is necessary to follow the instruction at [catkin installation](https://wiki.ros.org/catkin#Installing_catkin). After installation source the environment:
  ```sh
  $ source /opt/ros/kinetic/setup.bash
@@ -264,19 +264,19 @@ Project Link: [https://github.com/SerenaRoncagliolo/Exp_Robotics_Lab1](https://g
 
 
 
-<!-- ACKNOWLEDGEMENTS -->
+<!-- ACKNOWLEDGEMENTS
 ## Acknowledgements
 
 * []()
 * []()
 * []()
-
+ -->
 
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links 
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
@@ -289,3 +289,4 @@ Project Link: [https://github.com/SerenaRoncagliolo/Exp_Robotics_Lab1](https://g
 [license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/github_username
+-->
