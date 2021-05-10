@@ -76,7 +76,6 @@
       </ul>
     </li>
     <li><a href="#repository-organization">Repository Organization</a></li>
-    Prerequisites
     <li><a href="#prerequisites">Prerequisites</a></li>
     <ul>
         <li><a href="#ros">ROS</a></li>
