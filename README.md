@@ -197,6 +197,12 @@ This project is developed using [ROS Kinetic](http://wiki.ros.org/kinetic/Instal
 ### Python
 This project is developed using [Python3](https://www.python.org/downloads/). Follow [instructions](https://www.python.org/downloads/) for installation.
 
+### Smach
+This project make use of the smach library to use the FSM.
+ ```sh
+ $ sudo apt-get install ros-kinetic-smach-viewer
+ ```
+
 ## Installation
 This instructions assumes that you have installed **catkin**, if not it is necessary to follow the instruction at [catkin installation](https://wiki.ros.org/catkin#Installing_catkin). After installation source the environment:
  ```sh
