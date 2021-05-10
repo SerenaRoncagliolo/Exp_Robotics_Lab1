@@ -66,18 +66,29 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#software-architecture">Software Architecture</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#components-architecture">Components Architecture</a></li>
+        <li><a href="#state-machine">State Machine</a></li>
+        <li><a href="#ros-topics">ROS Topics</a></li>
+        <li><a href="#ros-messages">ROS Messages</a></li>
+        <li><a href="#rqt">Rqt_graphs</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#repository-organization">Repository Organization</a></li>
+    Prerequisites
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <ul>
+        <li><a href="#ros">ROS</a></li>
+        <li><a href="#python">Python</a></li>
+     </ul>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#working-hypo">Working hypothesis and environment</a></li>
+    <ul>
+        <li><a href="#system-features">System's features</a></li>
+        <li><a href="#system-limitations">System's limitations</a></li>
+        <li><a href="#future-work">Future work</a></li>
+    </ul>
   </ol>
 </details>
 
@@ -99,12 +110,12 @@ The robot can assume three behaviors:
 * **Play**: the robot approaches the person, it waits for a command to follow and it finally goes back to the person;
 * **Normal**: the robot moves inside the environment.
 
-<!--
-## Built With
 
-* []()
-* []()
-* []() -->
+### Built With
+
+* [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)
+* [Python3](https://www.python.org/downloads/)
+* [SMACH](http://wiki.ros.org/smach)
 
 ## Software  Architecture
 
@@ -158,7 +169,7 @@ The position of the robot within the map is describe by a x-axis coordinate and 
   int32[] data
   ```
 
-## Rqt_graphs 
+### Rqt_graphs 
 
 <p align="center">
 <a>
